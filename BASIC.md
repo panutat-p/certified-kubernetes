@@ -2,6 +2,8 @@
 
 one container per pod
 
+## Context
+
 ```shell
 kubectl config get-contexts
 ```
@@ -13,6 +15,8 @@ kubectl config view --minify | grep namespace:
 ```shell
 kubectl config set-context --current --namespace=default
 ```
+
+## Resources
 
 ```shell
 kubectl get all --namespace animal
@@ -29,6 +33,8 @@ kubectl get service
 ```shell
 kubectl get deployment
 ```
+
+## Utilities
 
 ```shell
 kubectl logs -f my-pod
