@@ -16,5 +16,5 @@ kubectl edit pod/web-server-1
 
 ```shell
 cd /tmp
-kubectl replace --force -f /tmp/kubectl-edit-<random>.yaml
+kubectl replace --force -f ./kubectl-edit-<random>.yaml
 ```
