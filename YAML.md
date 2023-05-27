@@ -7,8 +7,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: web-server
-  labels:
-    app: backend
 spec:
   replicas: 3
   selector:
@@ -17,7 +15,7 @@ spec:
   template:
     metadata:
       labels:
-        app: nginx
+        app: backend
     spec:
       containers:
       - name: nginx
