@@ -1,4 +1,4 @@
-# Output
+# Kubernetes Definition Files
 
 `deployment.yaml`
 
