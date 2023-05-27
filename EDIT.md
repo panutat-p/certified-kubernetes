@@ -1,12 +1,12 @@
 # Edit running resources
 
-## Update image
+## Update pod image
 
 ```shell
 kubectl edit pod/web-server-1
 ```
 
-## Update other fields
+## Replace pod
 
 ```shell
 kubectl edit pod/web-server-1
@@ -17,4 +17,16 @@ kubectl edit pod/web-server-1
 ```shell
 cd /tmp
 kubectl replace --force -f ./kubectl-edit-<random>.yaml
+```
+
+## Recreate pod
+
+```shell
+kubectl get pod/web-server-1 -o yaml > web-server-1.yaml
+nano web-server-1.yaml
+```
+
+```shell
+kubectl delete pod/web-server-1.yaml
+kubectl create -f web-server-1.yaml
 ```
