@@ -1,5 +1,13 @@
 # Kubernetes Definition Files
 
+## Generate a definition file
+
+```shell
+kubectl create deployment sample-deployment --image=nginx --dry-run=client -o yaml > sample-deployment.yaml
+```
+
+## Example deployment definition file
+
 `deployment.yaml`
 
 ```yaml
