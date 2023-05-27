@@ -8,12 +8,12 @@ kind: Deployment
 metadata:
   name: web-server
   labels:
-    app: nginx
+    app: backend
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: nginx
+      app: backend
   template:
     metadata:
       labels:
@@ -24,6 +24,11 @@ spec:
         image: nginx:latest
         ports:
         - containerPort: 80
+        env:
+        - name: APP
+          value: sample-nginx
+        - name: ENV
+          value: dev
 ```
 
 ```shell
