@@ -1,5 +1,7 @@
 # Config Maps
 
+## Redis example
+
 `configmap.yaml`
 
 ```yaml
@@ -44,3 +46,7 @@ spec:
 ```shell
 kubectl apply -f configmap.yaml -f redis.yaml
 ```
+
+## Complex configurations
+
+https://stackoverflow.com/a/66455621
