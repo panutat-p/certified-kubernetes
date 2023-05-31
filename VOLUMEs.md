@@ -5,7 +5,7 @@
 
 `redis.yaml`
 
-```shell
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
