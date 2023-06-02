@@ -3,6 +3,8 @@
 * Any data written to this directory within the container will be stored in the `emptyDir` volume associated with the pod
 * This `emptyDir` volume is non-persistent and will lose its data if the pod is terminated or rescheduled to a different node.
 
+## Nginx
+
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -20,6 +22,8 @@ spec:
       emptyDir: {}
 
 ```
+
+## Redis
 
 ```yaml
 apiVersion: v1
