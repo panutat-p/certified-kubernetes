@@ -3,7 +3,23 @@
 * Any data written to this directory within the container will be stored in the `emptyDir` volume associated with the pod
 * This `emptyDir` volume is non-persistent and will lose its data if the pod is terminated or rescheduled to a different node.
 
-`redis.yaml`
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+      volumeMounts:
+        - name: html-volume
+          mountPath: /usr/share/nginx/html
+  volumes:
+    - name: html-volume
+      emptyDir: {}
+
+```
 
 ```yaml
 apiVersion: v1
@@ -23,8 +39,4 @@ spec:
     - name: redis-data
       emptyDir: {}
 
-```
-
-```shell
-kubectl create -f redis.yaml
 ```
