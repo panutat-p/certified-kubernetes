@@ -24,6 +24,10 @@ spec:
       emptyDir: {}
 ```
 
+```shell
+kubectl cp ~/index.html nginx-pod:/usr/share/nginx/html/index.html
+```
+
 ## Redis
 
 ```yaml
