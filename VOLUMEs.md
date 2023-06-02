@@ -14,13 +14,14 @@ spec:
   containers:
     - name: nginx
       image: nginx
+      ports:
+        - containerPort: 80
       volumeMounts:
         - name: html-volume
           mountPath: /usr/share/nginx/html
   volumes:
     - name: html-volume
       emptyDir: {}
-
 ```
 
 ## Redis
@@ -42,5 +43,4 @@ spec:
   volumes:
     - name: redis-data
       emptyDir: {}
-
 ```
