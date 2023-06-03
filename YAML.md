@@ -1,20 +1,52 @@
 # Kubernetes Definition Files
 
-## Generate a definition file
-
 ```shell
-kubectl create deployment sample-deployment --image=nginx --dry-run=client -o yaml > sample-deployment.yaml
+kubectl create -f file.yaml
 ```
 
-## Example deployment definition file
+```shell
+kubectl describe deployment/name
+```
 
-`deployment.yaml`
+```shell
+kubectl apply -f ./file.yaml
+```
+
+```shell
+kubectl create deployment d-sample --image=nginx --dry-run=client -o yaml > d-sample.yaml
+```
+
+```shell
+kubectl create pod p-sample --image=nginx --port=80 --dry-run=client -o yaml > p-sample.yaml
+```
+
+## Pod definition file
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-c77zy5
+spec:
+  containers:
+    - name: nginx
+      image: nginx:latest
+      ports:
+        - containerPort: 80
+      env:
+        - name: APP
+          value: sample-nginx
+        - name: ENV
+          value: dev
+```
+
+## Deployment definition file
 
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web-server
+  name: nginx-7o672f
 spec:
   replicas: 3
   selector:
@@ -35,16 +67,4 @@ spec:
           value: sample-nginx
         - name: ENV
           value: dev
-```
-
-```shell
-kubectl create -f ./deployment.yaml
-```
-
-```shell
-kubectl apply -f ./deployment.yaml
-```
-
-```shell
-kubectl describe deployment/web-server
 ```
