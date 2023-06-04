@@ -2,6 +2,10 @@
 
 https://www.udemy.com/course/certified-kubernetes-application-developer/learn
 
+## Cheat Sheets
+
+https://kubernetes.io/docs/reference/kubectl/cheatsheet/
+
 ## Platforms
 
 https://www.brandbucket.com
