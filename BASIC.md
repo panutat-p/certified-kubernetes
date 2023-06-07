@@ -41,6 +41,10 @@ kubectl logs -f my-pod
 ```
 
 ```shell
+kubectl exec my-pod -- ls
+```
+
+```shell
 kubectl exec --stdin --tty my-pod -- /bin/sh 
 ```
 
