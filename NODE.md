@@ -20,8 +20,16 @@ spec:
 
 ## Taint
 
-```shell
+* `NoSchedule`
+* `PreferNoSchedule`
+* `NoExecute`
 
+```shell
+kubectl taint nodes node-1 app=product:NoSchedule
+```
+
+```shell
+kubectl taint nodes node-1 app=product:NoSchedule-
 ```
 
 ## Toleration
