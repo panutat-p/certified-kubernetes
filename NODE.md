@@ -25,11 +25,23 @@ spec:
 * `NoExecute`
 
 ```shell
-kubectl taint nodes node-1 app=product:NoSchedule
+kubectl taint nodes node-1 priority=high:NoSchedule
 ```
 
 ```shell
-kubectl taint nodes node-1 app=product:NoSchedule-
+kubectl taint nodes node-1 priority=high:NoSchedule-
+```
+
+```yaml
+apiVersion: v1
+kind: Node
+metadata:
+  name: node-1
+spec:
+  taints:
+    - key: priority
+      value: high
+      effect: NoSchedule
 ```
 
 ## Toleration
