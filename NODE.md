@@ -1,8 +1,8 @@
 ## Node Selector
 
 ```shell
-kubectl label nodes node-1 app=auth
-kubectl label nodes node-2 app=product
+kubectl label nodes node-1 size=medium
+kubectl label nodes node-2 size=large
 ```
 
 ```yaml
@@ -15,7 +15,7 @@ spec:
     - name: my-container
       image: nginx
   nodeSelector:
-    app: product
+    size: medium
 ```
 
 ## Taint
@@ -25,11 +25,11 @@ spec:
 * `NoExecute`
 
 ```shell
-kubectl taint nodes node-1 priority=high:NoSchedule
+kubectl taint nodes node-1 type=master:NoSchedule
 ```
 
 ```shell
-kubectl taint nodes node-1 priority=high:NoSchedule-
+kubectl taint nodes node-1 type=master:NoSchedule-
 ```
 
 ```yaml
@@ -39,8 +39,8 @@ metadata:
   name: node-1
 spec:
   taints:
-    - key: priority
-      value: high
+    - key: type
+      value: master
       effect: NoSchedule
 ```
 
