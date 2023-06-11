@@ -62,10 +62,27 @@ spec:
 
 ## Node Affinity
 
-* `RequiredDuringSchedulingIgnoredDuringExecution`
-* `PreferredDuringSchedulingIgnoredDuringExecution`
-* `RequiredDuringSchedulingRequiredDuringExecution`
+* `requiredDuringSchedulingIgnoredDuringExecution`
+* `preferredDuringSchedulingIgnoredDuringExecution`
+* `requiredDuringSchedulingRequiredDuringExecution`
+* `preferredDuringSchedulingRequiredDuringExecution`
 
 ```shell
-
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod
+spec:
+  containers:
+  - name: my-container
+    image: my-image
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: <label-key>
+            operator: In
+            values:
+            - <label-value>
 ```
