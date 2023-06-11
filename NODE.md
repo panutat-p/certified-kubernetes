@@ -67,7 +67,7 @@ spec:
 * `requiredDuringSchedulingRequiredDuringExecution`
 * `preferredDuringSchedulingRequiredDuringExecution`
 
-```shell
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
