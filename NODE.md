@@ -62,6 +62,10 @@ spec:
 
 ## Node Affinity
 
+* `RequiredDuringSchedulingIgnoredDuringExecution`
+* `PreferredDuringSchedulingIgnoredDuringExecution`
+* `RequiredDuringSchedulingRequiredDuringExecution`
+
 ```shell
 
 ```
