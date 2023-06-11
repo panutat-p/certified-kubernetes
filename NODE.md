@@ -18,7 +18,7 @@ spec:
     size: medium
 ```
 
-## Taint
+## Taint & Toleration
 
 * `NoSchedule`
 * `PreferNoSchedule`
@@ -44,10 +44,20 @@ spec:
       effect: NoSchedule
 ```
 
-## Toleration
-
-```shell
-
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+  tolerations:
+  - key: type
+    operator: Equal
+    value: slave
+    effect: NoSchedule
 ```
 
 ## Node Affinity
