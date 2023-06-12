@@ -71,18 +71,18 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: my-pod
+  name: nginx-pod
 spec:
   containers:
-  - name: my-container
-    image: my-image
+  - name: nginx-container
+    image: nginx:latest
   affinity:
     nodeAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-        nodeSelectorTerms:
-        - matchExpressions:
-          - key: <label-key>
-            operator: In
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - preference:
+          matchExpressions:
+          - key: size
+            operator: NotIn
             values:
-            - <label-value>
+            - small
 ```
