@@ -52,7 +52,7 @@ metadata:
 spec:
   containers:
   - name: nginx
-    image: nginx
+    image: nginx:latest
   tolerations:
   - key: type
     operator: Equal
@@ -71,10 +71,10 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: nginx-pod
+  name: nginx
 spec:
   containers:
-  - name: nginx-container
+  - name: nginx
     image: nginx:latest
   affinity:
     nodeAffinity:
