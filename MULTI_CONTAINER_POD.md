@@ -1,31 +1,25 @@
 # Multi-container Pods
 
-## Ambassador
+## Sidecar example
 
 ```yaml
 apiVersion: v1
 kind: Pod
 metadata:
-  name: myapp-pod
+  name: nginx-with-logger
 spec:
   containers:
-    - name: webapp
-      image: myapp-webapp-image
+    - name: nginx
+      image: nginx
       ports:
         - containerPort: 80
     - name: log-agent
-      image: myapp-log-agent-image
+      image: log-agent-image
       ports:
         - containerPort: 8080
 ```
 
-## Adapter
-
-```yaml
-
-```
-
-## Sidecar
+## Init Container
 
 ```yaml
 
