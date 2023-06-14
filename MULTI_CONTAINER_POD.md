@@ -2,6 +2,10 @@
 
 ## Sidecar example
 
+a web application and logging agent, both containers are expected to stay alive at all times.
+The process running in the log agent container is expected to stay alive as long as the web application is running.
+If any of them fails, the POD restarts.
+
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -20,6 +24,8 @@ spec:
 ```
 
 ## Init Container
+
+Each init container is run one at a time in sequential order.
 
 ```yaml
 apiVersion: v1
