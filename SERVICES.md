@@ -2,6 +2,10 @@
 
 ## ClusterIP
 
+* The ClusterIP is an internal virtual IP address assigned to the service
+* Allows other services within the cluster to communicate with it
+* Provides a stable endpoint for internal communication
+
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
