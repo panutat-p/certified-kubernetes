@@ -10,16 +10,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx
+  name: web-app
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: nginx
+      app: web-app
   template:
     metadata:
       labels:
-        app: nginx
+        app: web-app
     spec:
       containers:
       - name: nginx
@@ -34,7 +34,7 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    app: nginx
+    app: web-app
   ports:
     - protocol: TCP
       port: 80
@@ -70,7 +70,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-service
+  name: web-server-service
 spec:
   type: LoadBalancer
   selector:
