@@ -43,8 +43,8 @@ spec:
 
 ## NodePort
 
-> To route traffic to the pods created by the Deployment
-> The selector field in the Service resource must match the labels specified in the Deployment's pod template
+To route traffic to the pods created by the Deployment
+The selector field in the Service resource must match the labels specified in the Deployment's pod template
 
 ```yaml
 apiVersion: apps/v1
