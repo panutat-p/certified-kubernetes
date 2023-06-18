@@ -10,6 +10,8 @@ https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 
 https://www.brandbucket.com
 
+https://labs.play-with-k8s.com
+
 https://killercoda.com
 
 https://console.cloud.google.com/kubernetes/list/overview
