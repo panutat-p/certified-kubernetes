@@ -43,6 +43,7 @@ spec:
 
 ## NodePort
 
+* Support high port numbers: 30000 - 32767
 * Forward port of the node to the port of the pod
 * To route traffic to the pods created by the Deployment,\
 the selector field in the Service resource must match the labels specified in the Deployment's pod template
