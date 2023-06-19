@@ -43,8 +43,9 @@ spec:
 
 ## NodePort
 
-To route traffic to the pods created by the Deployment
-The selector field in the Service resource must match the labels specified in the Deployment's pod template
+* Forward port of the node to the port of the pod
+* To route traffic to the pods created by the Deployment,\
+the selector field in the Service resource must match the labels specified in the Deployment's pod template
 
 ```yaml
 apiVersion: apps/v1
