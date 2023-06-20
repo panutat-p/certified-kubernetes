@@ -2,7 +2,7 @@
 
 ## ClusterIP
 
-* The ClusterIP is an internal virtual IP address assigned to the service
+* An IP Address in the cluster
 * Allows other services within the cluster to communicate with it
 * Provides a stable endpoint for internal communication
 
