@@ -2,7 +2,7 @@
 
 ## ClusterIP
 
-* An IP Address in the cluster
+* An IP address in the cluster
 * Allows other services within the cluster to communicate with it
 * Provides a stable endpoint for internal communication
 
