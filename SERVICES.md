@@ -1,10 +1,12 @@
 # Services
 
+A Service acts as a stable endpoint for accessing your application and provides a way to load balance traffic among the pods.
+
 ## ClusterIP
 
 * An IP address in the cluster
 * Allows other services within the cluster to communicate with it
-* Provides a stable endpoint for internal communication
+* Internal communication
 
 ```yaml
 apiVersion: apps/v1
