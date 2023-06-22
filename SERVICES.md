@@ -1,6 +1,9 @@
 # Services
 
+https://kubernetes.io/docs/concepts/services-networking/service
+
 A Service acts as a stable endpoint for accessing your application and provides a way to load balance traffic among the pods.
+If you use a Deployment to run your app, that Deployment can create and destroy Pods dynamically. From one moment to the next, you don't know how many of those Pods are working and healthy; you might not even know what those healthy Pods are named.
 
 ## ClusterIP
 
