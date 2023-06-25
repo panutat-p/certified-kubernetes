@@ -46,6 +46,7 @@ spec:
 
 *  Acts as a layer of abstraction between the external traffic and the services running in the cluster
 *  Define rules to route traffic to specific services or pods based on criteria
+*  Create an ingress alone will not work
 
 ```yaml
 apiVersion: networking.k8s.io/v1
@@ -65,3 +66,8 @@ spec:
                 port:
                   number: 80
 ```
+
+## Ingress Controller
+
+* Kubernetes does not come with Ingress Controller by default
+* Example: `GCE`, `Nginx`, `Contour`, `HAProxy`, `Traefik`, `Istio`
