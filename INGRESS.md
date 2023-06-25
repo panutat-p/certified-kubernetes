@@ -70,4 +70,4 @@ spec:
 ## Ingress Controller
 
 * Kubernetes does not come with Ingress Controller by default
-* Example: `GCE`, `Nginx`, `Contour`, `HAProxy`, `Traefik`, `Istio`
+* Example: `GKE Ingress`, `Nginx`, `Contour`, `HAProxy`, `Traefik`, `Istio`
