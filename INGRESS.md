@@ -46,7 +46,7 @@ spec:
 
 *  Acts as a layer of abstraction between the external traffic and the services running in the cluster
 *  Define rules to route traffic to specific services or pods based on criteria
-*  Create an ingress alone will not work
+*  Create an ingress alone will not work because Kubernetes does not have `Ingress Controller` out of the box
 
 ```yaml
 apiVersion: networking.k8s.io/v1
