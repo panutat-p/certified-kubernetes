@@ -55,36 +55,38 @@ spec:
 the selector field in the Service resource must match the labels specified in the Deployment's pod template
 
 ```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+spec:
+  selector:
+    app: nginx
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: NodePort
+
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web-server
+  name: nginx
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: web-server
+      app: nginx
   template:
     metadata:
       labels:
-        app: web-server
+        app: nginx
     spec:
       containers:
         - name: nginx
           image: nginx:latest
           ports:
             - containerPort: 80
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: web-server-service
-spec:
-  type: LoadBalancer
-  selector:
-    app: web-server
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 80
+
 ```
