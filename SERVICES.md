@@ -88,5 +88,45 @@ spec:
           image: nginx:latest
           ports:
             - containerPort: 80
+```
 
+## LoadBalancer
+
+* The LoadBalancer service type is typically used in cloud environments
+* The external load balancer or the cloud load balancer automatically assigns an external IP address (or hostname) that clients can use to access the service
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+spec:
+  selector:
+    app: nginx
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: LoadBalancer
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:latest
+          ports:
+            - containerPort: 80
 ```
