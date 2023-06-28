@@ -92,7 +92,8 @@ spec:
 
 ## LoadBalancer
 
-* The LoadBalancer service type is typically used in cloud environments
+* The LoadBalancer service type is typically used in production environment in a Cloud provider
+* The cloud provider sets up a load balancer that forwards external traffic to the service
 * The external load balancer or the cloud load balancer automatically assigns an external IP address (or hostname) that clients can use to access the service
 
 ```yaml
