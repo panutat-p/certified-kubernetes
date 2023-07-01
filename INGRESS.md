@@ -29,8 +29,68 @@ spec:
 
 * Kubernetes does not come with Ingress Controller by default
 * Example: `GKE Ingress`, `Nginx`, `Contour`, `HAProxy`, `Traefik`, `Istio`
+* Example nginx ingress controller
+  * https://docs.nginx.com/nginx-ingress-controller/installation/installation-with-manifests
+  * https://github.com/nginxinc/kubernetes-ingress/blob/main/deployments/deployment/nginx-ingress.yaml
 
 ## Full Example
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-ingress-service
+  namespace: ingress-nginx
+spec:
+  type: LoadBalancer
+  selector:
+    app: nginx-ingress
+  ports:
+    - name: http
+      port: 80
+      targetPort: http
+    - name: https
+      port: 443
+      targetPort: https
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-ingress-controller
+  namespace: ingress-nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-ingress
+  template:
+    metadata:
+      labels:
+        app: nginx-ingress
+    spec:
+      containers:
+        - name: nginx-ingress-controller
+          image: quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.27.1
+          args:
+            - /nginx-ingress-controller
+            - --configmap=$(POD_NAMESPACE)/nginx-configuration
+            - --tcp-services-configmap=$(POD_NAMESPACE)/tcp-services
+            - --udp-services-configmap=$(POD_NAMESPACE)/udp-services
+          env:
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+          ports:
+            - name: http
+              containerPort: 80
+            - name: https
+              containerPort: 443
+```
 
 ```yaml
 apiVersion: networking.k8s.io/v1
@@ -58,7 +118,9 @@ spec:
                 name: nginx-service
                 port:
                   number: 80
----
+```
+
+```yaml
 apiVersion: v1
 kind: Service
 metadata:
