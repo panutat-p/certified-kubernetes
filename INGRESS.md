@@ -74,8 +74,6 @@ spec:
           args:
             - /nginx-ingress-controller
             - --configmap=$(POD_NAMESPACE)/nginx-configuration
-            - --tcp-services-configmap=$(POD_NAMESPACE)/tcp-services
-            - --udp-services-configmap=$(POD_NAMESPACE)/udp-services
           env:
             - name: POD_NAME
               valueFrom:
@@ -90,6 +88,19 @@ spec:
               containerPort: 80
             - name: https
               containerPort: 443
+          volumeMounts:
+            - name: nginx-configuration
+              mountPath: /etc/nginx/nginx.conf
+              subPath: nginx.conf
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-configuration
+  namespace: ingress-nginx
+data:
+  nginx.conf: |
+    <NGINX_CONFIGURATION>
 ```
 
 ```yaml
