@@ -35,6 +35,9 @@ spec:
 
 ## Full Example
 
+`$(POD_NAMESPACE)` is an environment variable that represents the namespace in which the NGINX Ingress Controller pod is running.
+This allows the Ingress Controller to automatically retrieve the NGINX configuration ConfigMap from the same namespace without hard-coding the namespace value.
+
 ```yaml
 apiVersion: v1
 kind: Service
