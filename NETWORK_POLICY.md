@@ -1,6 +1,8 @@
 # Network Policy
 
-⚠️ The default rule is all `allow`
+https://kubernetes.io/docs/concepts/services-networking/network-policies
+
+⚠️ By default, a pod is non-isolated for ingress and egress
 
 ## Example 1: Allow Nginx traffic to the pod
 
