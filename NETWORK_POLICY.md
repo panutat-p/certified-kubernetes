@@ -2,7 +2,8 @@
 
 https://kubernetes.io/docs/concepts/services-networking/network-policies
 
-⚠️ By default, a pod is non-isolated for ingress and egress
+* ⚠️ By default, a pod is non-isolated for ingress and egress
+* Kubernetes network policy control traffic flow at the IP address or port level (OSI layer 3 or 4)
 
 ## Example 1: Allow Nginx traffic to the pod
 
