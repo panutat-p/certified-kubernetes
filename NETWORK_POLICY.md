@@ -6,7 +6,21 @@ https://kubernetes.io/docs/concepts/services-networking/network-policies
 * NetworkPolicies control traffic flow at the IP address or port level (OSI layer 3 or 4)
 * NetworkPolicies apply to a connection with a pod on one or both ends
 
-## Example 1: Allow Nginx traffic to the pod
+## Example 1: Block all traffic
+
+```yaml
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny-ingress
+spec:
+  podSelector: {}
+  policyTypes:
+  - Ingress
+```
+
+## Example 2: Allow Nginx traffic to the pod
 
 Use a selector to specify what traffic is allowed to and from the pod
 
@@ -29,7 +43,7 @@ spec:
       port: 80
 ```
 
-## Example 2: Block IP Addresses
+## Example 3: Block IP Addresses
 
 ```yaml
 apiVersion: networking.k8s.io/v1
