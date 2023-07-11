@@ -6,6 +6,7 @@ https://helm.sh/docs/intro/install
 helm create nginx-chart
 ```
 
+```
 nginx-chart/
   Chart.yaml          # A YAML file containing information about the chart
   LICENSE             # OPTIONAL: A plain text file containing the license for the chart
@@ -16,3 +17,4 @@ nginx-chart/
   crds/               # Custom Resource Definitions
   templates/          # A directory of templates that, when combined with values, will generate valid Kubernetes manifest files.
   templates/NOTES.txt # OPTIONAL: A plain text file containing short usage notes
+```
