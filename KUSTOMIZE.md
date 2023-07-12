@@ -61,3 +61,15 @@ spec:
           ports:
             - containerPort: 80
 ```
+
+```shell
+kubectl kustomize ./dev
+```
+
+```shell
+kubectl apply -k ./dev
+```
+
+```shell
+kubectl delete -k ./dev
+```
