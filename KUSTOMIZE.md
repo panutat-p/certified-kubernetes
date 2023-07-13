@@ -1,6 +1,10 @@
 # Kustomize
 
-https://kubectl.docs.kubernetes.io/references
+https://kubectl.docs.kubernetes.io/references/kustomize/kustomization
+
+```shell
+kustomize edit fix
+```
 
 ```shell
 kustomize create --namespace=reddit --resources=deployment.yaml,service.yaml --labels=app:gateway
@@ -73,3 +77,29 @@ kubectl apply -k ./dev
 ```shell
 kubectl delete -k ./dev
 ```
+
+## Example 2: ConfigMap generator
+
+https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/configmapgenerator
+
+```yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+# These labels are added to all configmaps
+generatorOptions:
+  disableNameSuffixHash: true
+  labels:
+    type: generated
+  annotations:
+    note: generated
+
+configMapGenerator:
+- name: my-java-server-env-file-vars
+  envs:
+  - config.env
+```
+
+## Example 3: Secret Generator
+
+https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/secretgenerator
