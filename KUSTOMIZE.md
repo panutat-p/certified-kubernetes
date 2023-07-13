@@ -95,9 +95,10 @@ generatorOptions:
     note: generated
 
 configMapGenerator:
-- name: my-config
-  envs:
-  - config.env
+  - name: my-config
+    namespace: reddit
+    envs:
+      - config.env
 ```
 
 ## Example 3: Secret Generator
@@ -117,14 +118,15 @@ generatorOptions:
     note: generated
 
 secretGenerator:
-- name: app-tls
-  files:
-  - tls.crt
-  - tls.key
-  type: "kubernetes.io/tls"
-- name: my-secret
-  type: Opaque
-  namespace: apps
-  envs:
-  - secret.env
+  - name: app-tls
+    namespace: reddit
+    type: "kubernetes.io/tls"
+    files:
+      - tls.crt
+      - tls.key
+  - name: my-secret
+    namespace: reddit
+    type: Opaque
+    envs:
+      - secret.env
 ```
