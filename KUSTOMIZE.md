@@ -95,7 +95,7 @@ generatorOptions:
     note: generated
 
 configMapGenerator:
-- name: my-java-server-env-file-vars
+- name: my-config
   envs:
   - config.env
 ```
@@ -103,3 +103,20 @@ configMapGenerator:
 ## Example 3: Secret Generator
 
 https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/secretgenerator
+
+```yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+secretGenerator:
+- name: app-tls
+  files:
+  - tls.crt
+  - tls.key
+  type: "kubernetes.io/tls"
+- name: my-secret
+  type: Opaque
+  namespace: apps
+  envs:
+  - secret.env
+```
