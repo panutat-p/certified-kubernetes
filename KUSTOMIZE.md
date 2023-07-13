@@ -108,6 +108,14 @@ https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/secretgene
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
+# These labels are added to all configmaps
+generatorOptions:
+  disableNameSuffixHash: true
+  labels:
+    type: generated
+  annotations:
+    note: generated
+
 secretGenerator:
 - name: app-tls
   files:
