@@ -1,6 +1,6 @@
 # Secrets
 
-`secret.yaml`
+## Read secret by key
 
 ```yaml
 apiVersion: v1
@@ -10,11 +10,7 @@ metadata:
 type: Opaque
 data:
   redis-password: <base64-encoded-password>
-```
-
-`redis.yaml`
-
-```yaml
+---
 apiVersion: v1
 kind: Pod
 metadata:
@@ -29,8 +25,4 @@ spec:
             secretKeyRef:
               name: crm
               key: redis-password
-```
-
-```shell
-kubectl apply -f secret.yaml -f redis.yaml
 ```
