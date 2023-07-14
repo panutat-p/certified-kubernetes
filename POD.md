@@ -36,6 +36,9 @@ kind: Pod
 metadata:
   name: nginx-pod
   namespace: dev
+  labels:
+    owner: panda
+    app: nginx
 spec:
   containers:
     - name: nginx
