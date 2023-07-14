@@ -26,7 +26,8 @@ kubectl create pod p-sample --image=nginx --port=80 --dry-run=client -o yaml > p
 apiVersion: v1
 kind: Pod
 metadata:
-  name: nginx-c77zy5
+  name: nginx-pod
+  namespace: dev
 spec:
   containers:
     - name: nginx
@@ -34,8 +35,6 @@ spec:
       ports:
         - containerPort: 80
       env:
-        - name: APP
-          value: sample-nginx
         - name: ENV
           value: dev
 ```
