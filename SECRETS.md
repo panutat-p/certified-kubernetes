@@ -5,7 +5,7 @@ https://opensource.com/article/19/6/introduction-kubernetes-secrets-and-configma
 
 ## Read secret by key
 
-`env.name` will be a environment variable name\
+`env.name` will be the environment variable name\
 `secretKeyRef.key` need to match the Secret data
 
 ```yaml
