@@ -48,11 +48,12 @@ spec:
   replicas: 3
   selector:
     matchLabels:
+      owner: panda
       app: nginx
   template:
     metadata:
       labels:
-        env: dev
+        owner: panda
         app: nginx
     spec:
       containers:
