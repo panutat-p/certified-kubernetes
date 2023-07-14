@@ -20,7 +20,7 @@ kubectl create deployment d-sample --image=nginx --dry-run=client -o yaml > d-sa
 kubectl create pod p-sample --image=nginx --port=80 --dry-run=client -o yaml > p-sample.yaml
 ```
 
-## Pod definition file
+## Pod
 
 ```yaml
 apiVersion: v1
@@ -34,36 +34,30 @@ spec:
       image: nginx:latest
       ports:
         - containerPort: 80
-      env:
-        - name: ENV
-          value: dev
 ```
 
-## Deployment definition file
+## Deployment
 
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-7o672f
+  name: nginx-deployment
+  namespace: dev
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: backend
+      app: nginx
   template:
     metadata:
       labels:
-        app: backend
+        env: dev
+        app: nginx
     spec:
       containers:
-      - name: nginx
-        image: nginx:latest
-        ports:
-        - containerPort: 80
-        env:
-        - name: APP
-          value: sample-nginx
-        - name: ENV
-          value: dev
+        - name: nginx
+          image: nginx:latest
+          ports:
+            - containerPort: 80
 ```
