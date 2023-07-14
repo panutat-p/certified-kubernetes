@@ -20,6 +20,14 @@ kubectl create deployment d-sample --image=nginx --dry-run=client -o yaml > d-sa
 kubectl create pod p-sample --image=nginx --port=80 --dry-run=client -o yaml > p-sample.yaml
 ```
 
+```shell
+kubectl scale deploy/name--replicas=3 -n dev
+```
+
+```shell
+kubectl get deploy/name -n dev
+```
+
 ## Pod
 
 ```yaml
