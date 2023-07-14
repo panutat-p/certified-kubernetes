@@ -2,6 +2,9 @@
 
 ## Read secret by key
 
+In Kubernetes, environment variables are case-sensitive.\
+Therefore, the environment variable name defined in the env section must match the key in the secret exactly for the value to be fetched correctly.
+
 ```yaml
 apiVersion: v1
 kind: Secret
