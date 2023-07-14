@@ -15,7 +15,7 @@ metadata:
   name: redis-secret
 type: Opaque
 data:
-  REDIS_HOST: MTAuMC4xLjE=
+  redis-password: base64_encoded_password
 ---
 apiVersion: v1
 kind: Pod
@@ -26,11 +26,11 @@ spec:
     - name: redis
       image: redis
       env:
-        - name: REDIS_HOST
+        - name: REDIS_PASSWORD
           valueFrom:
             secretKeyRef:
               name: redis-secret
-              key: REDIS_HOST
+              key: redis-password
 ```
 
 ## Read whole secret object
@@ -44,7 +44,7 @@ metadata:
   name: redis-secret
 type: Opaque
 data:
-  REDIS_HOST: MTAuMC4xLjE=
+  REDIS_PASSWORD: base64_encoded_password
 ---
 apiVersion: v1
 kind: Pod
