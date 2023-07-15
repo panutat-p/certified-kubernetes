@@ -1,15 +1,22 @@
 # Kubernetes Definition Files
 
+## Basic
+
+```shell
+kubectl apply -f file.yaml
+```
+
 ```shell
 kubectl create -f file.yaml
 ```
 
 ```shell
-kubectl describe deployment/name
+kubectl delete -f file.yaml
 ```
 
 ```shell
-kubectl apply -f ./file.yaml
+kubectl describe service/name -n dev
+kubectl describe deployment/name -n dev
 ```
 
 ```shell
