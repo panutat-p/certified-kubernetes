@@ -35,6 +35,25 @@ kubectl scale deploy/name--replicas=3 -n dev
 kubectl get deploy/name -n dev
 ```
 
+## Utilities
+
+```shell
+kubectl logs -f my-pod
+```
+
+```shell
+kubectl exec my-pod -- ls
+```
+
+```shell
+kubectl exec --stdin --tty my-pod -- /bin/sh 
+```
+
+Listen on port 5000 on the local machine and forward to port 6000 on my-pod
+```shell
+kubectl port-forward my-pod 5000:6000
+```
+
 ## Pod
 
 ```yaml
