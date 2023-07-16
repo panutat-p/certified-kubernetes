@@ -33,22 +33,3 @@ kubectl get service
 ```shell
 kubectl get deployment
 ```
-
-## Utilities
-
-```shell
-kubectl logs -f my-pod
-```
-
-```shell
-kubectl exec my-pod -- ls
-```
-
-```shell
-kubectl exec --stdin --tty my-pod -- /bin/sh 
-```
-
-Listen on port 5000 on the local machine and forward to port 6000 on my-pod
-```shell
-kubectl port-forward my-pod 5000:6000
-```
