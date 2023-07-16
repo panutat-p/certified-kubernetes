@@ -9,7 +9,7 @@ kubectl config get-contexts
 ```
 
 ```shell
-kubectl config view --minify | grep namespace:
+kubectl config view | grep namespace
 ```
 
 ```shell
