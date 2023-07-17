@@ -78,9 +78,11 @@ kubectl apply -k ./dev
 kubectl delete -k ./dev
 ```
 
-## Example 2: ConfigMap generator
+## Example 2: Generator
 
 https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/configmapgenerator
+
+https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/secretgenerator
 
 ```yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
@@ -99,23 +101,6 @@ configMapGenerator:
     namespace: reddit
     envs:
       - config.env
-```
-
-## Example 3: Secret Generator
-
-https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/secretgenerator
-
-```yaml
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-
-# These labels are added to all configmaps
-generatorOptions:
-  disableNameSuffixHash: true
-  labels:
-    type: generated
-  annotations:
-    note: generated
 
 secretGenerator:
   - name: app-tls
