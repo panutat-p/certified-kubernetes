@@ -1,9 +1,8 @@
-# Basic Commands
+# Context
 
-one container per pod
+https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters
 
-## Context
-
+Get cluster information
 ```shell
 kubectl config get-contexts
 ```
