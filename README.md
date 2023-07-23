@@ -1,6 +1,8 @@
 # certified-kubernetes
 
-https://www.udemy.com/course/certified-kubernetes-application-developer/learn
+https://training.linuxfoundation.org/certification/certified-kubernetes-application-developer-ckad
+
+https://github.com/cncf/curriculum/blob/master/CKAD_Curriculum_v1.27.pdf
 
 ## Cheat Sheets
 
