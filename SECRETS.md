@@ -58,3 +58,26 @@ spec:
         - secretRef:
             name: redis-secret
 ```
+
+## Mount seceret object
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: go-program
+spec:
+  containers:
+    - name: go-program
+      image: go:1.20-bookworm
+      ports:
+        - containerPort: 80
+      volumeMounts:
+        - name: aws-secret-volume
+          mountPath: /root/.aws
+          readOnly: true
+  volumes:
+    - name: aws-secret-volume
+      secret:
+        secretName: aws-secret
+```
