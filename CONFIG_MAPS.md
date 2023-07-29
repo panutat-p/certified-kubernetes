@@ -15,6 +15,7 @@ data:
   REDIS_TIMEOUT: "300"
   REDIS_PASSWORD: "mypassword"
 ---
+apiVersion: v1
 kind: Deployment
 metadata:
   name: redis-deployment
