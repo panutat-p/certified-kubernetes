@@ -14,12 +14,7 @@ data:
   REDIS_PORT: "6379"
   REDIS_TIMEOUT: "300"
   REDIS_PASSWORD: "mypassword"
-```
-
-`redis.yaml`
-
-```yaml
-apiVersion: apps/v1
+---
 kind: Deployment
 metadata:
   name: redis-deployment
@@ -41,10 +36,6 @@ spec:
           envFrom:
             - configMapRef:
                 name: redis-config
-```
-
-```shell
-kubectl apply -f configmap.yaml -f redis.yaml
 ```
 
 ## Complex configurations
