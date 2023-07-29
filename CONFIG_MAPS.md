@@ -1,8 +1,6 @@
 # Config Maps
 
-## Redis example
-
-`configmap.yaml`
+## ConfigMap as ENV
 
 ```yaml
 apiVersion: v1
