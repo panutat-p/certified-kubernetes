@@ -6,7 +6,15 @@ https://github.com/cncf/curriculum/blob/master/CKAD_Curriculum_v1.27.pdf
 
 ## Cheat Sheets
 
-https://kubernetes.io/docs/reference/kubectl/cheatsheet/
+https://kubernetes.io/docs/reference/kubectl/cheatsheet
+
+https://github.com/reetasingh/CKAD-Bookmarks
+
+## Guides
+
+https://www.linkedin.com/pulse/how-i-got-ckad-certification-2021-3-weeks-abdelahad-satour
+
+https://www.reddit.com/r/kubernetes/comments/o1vjrp/difficulty_of_the_ckad_exam
 
 ## Platforms
 
