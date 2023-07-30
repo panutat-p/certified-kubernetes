@@ -14,13 +14,11 @@ https://github.com/reetasingh/CKAD-Bookmarks
 
 ## Reviews
 
-https://www.reddit.com/r/kubernetes/comments/o1vjrp/difficulty_of_the_ckad_exam
+https://www.reddit.com/r/kubernetes/comments/13hu0qr/my_ckad_exam_experience
 
-https://www.reddit.com/r/kubernetes/comments/11owceb/i_failed_the_ckad/
+https://www.reddit.com/r/kubernetes/comments/10dwejs/my_ckad_experience_january_2023
 
 https://www.reddit.com/r/kubernetes/comments/13mhozb/ckad_exam_experience_and_tips
-
-
 
 ## Platforms
 
