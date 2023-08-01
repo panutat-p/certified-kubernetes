@@ -35,6 +35,12 @@ kubectl scale deploy/name--replicas=3 -n dev
 kubectl get deploy/name -n dev
 ```
 
+```shell
+kubectl explain pod.spec --recursive | less
+kubectl explain pod.spec.containers --recursive | less
+kubectl explain pod.spec.volumes --recursive | less
+```
+
 ## Utilities
 
 ```shell
