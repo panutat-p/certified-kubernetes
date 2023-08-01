@@ -62,7 +62,7 @@ When try to edit a image of a pod
 kubectl edit pod/web-server-1
 ```
 
-`A copy of your changes has been stored to "/tmp/kubectl-edit-<random>.yaml"`
+> A copy of your changes has been stored to "/tmp/kubectl-edit-<random>.yaml"
 
 ```shell
 cd /tmp
