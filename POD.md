@@ -54,6 +54,32 @@ Listen on port 5000 on the local machine and forward to port 6000 on my-pod
 kubectl port-forward my-pod 5000:6000
 ```
 
+
+## Edit running resources
+
+When try to edit a image of a pod
+```shell
+kubectl edit pod/web-server-1
+```
+
+`A copy of your changes has been stored to "/tmp/kubectl-edit-<random>.yaml"`
+
+```shell
+cd /tmp
+kubectl replace --force -f ./kubectl-edit-<random>.yaml
+```
+
+Export pod manifest file
+```shell
+kubectl get pod/web-server-1 -o yaml > web-server-1.yaml
+nano web-server-1.yaml
+```
+
+```shell
+kubectl delete pod/web-server-1.yaml
+kubectl create -f web-server-1.yaml
+```
+
 ## Pod
 
 ```yaml
