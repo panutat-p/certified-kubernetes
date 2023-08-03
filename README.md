@@ -2,6 +2,8 @@
 
 https://training.linuxfoundation.org/certification/certified-kubernetes-application-developer-ckad
 
+https://docs.linuxfoundation.org/tc-docs/certification/certification-resources-allowed#certified-kubernetes-administrator-cka-and-certified-kubernetes-application-developer-ckad
+
 https://github.com/cncf/curriculum/blob/master/CKAD_Curriculum_v1.27.pdf
 
 https://www.cncf.io/announcements/2021/06/02/linux-foundation-kubernetes-certifications-now-include-exam-simulator
