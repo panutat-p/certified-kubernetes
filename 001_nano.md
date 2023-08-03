@@ -2,7 +2,7 @@
 
 ## Version
 
-```
+```shell
 nano --version
 ```
 
