@@ -47,3 +47,28 @@ spec:
           ports:
             - containerPort: 80
 ```
+
+## Jobs
+
+```yaml
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: simple-job
+spec:
+  template:
+    spec:
+      containers:
+      - name: busybox-container
+        image: busybox:1.36
+        command: ["sh", "-c", "echo 'Current time is: $(date)'"]
+      restartPolicy: OnFailure
+  backoffLimit: 5
+```
+
+
+## CronJob
+
+```yaml
+
+```
