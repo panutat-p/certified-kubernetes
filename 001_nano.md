@@ -19,7 +19,7 @@ set autoindent
 set indicator
 ```
 
-## System nano configurations
+## Import system nano configurations
 
 > In general, the `yaml.nanorc` file is typically included in the `/usr/share/nano` directory for most Linux distributions,
 > including Ubuntu, Debian, and CentOS. This path is a common location for nano's syntax highlighting files.
@@ -33,7 +33,7 @@ ls /usr/share/nano/yaml.nanorc
 include "/usr/share/nano/yaml.nanorc"
 ```
 
-## Custom nano configurations
+## Import custom nano configurations
 
 https://github.com/serialhex/nano-highlight/tree/master
 
