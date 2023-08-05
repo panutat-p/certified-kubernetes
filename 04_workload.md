@@ -59,7 +59,7 @@ spec:
   template:
     spec:
       containers:
-      - name: busybox-container
+      - name: busybox
         image: busybox:1.36
         command: ["sh", "-c", "echo 'Current time is: $(date)'"]
       restartPolicy: OnFailure
@@ -69,6 +69,24 @@ spec:
 
 ## CronJob
 
-```yaml
+Echo the current time every 10 seconds.
 
+```yaml
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: simeple-cron-job
+spec:
+  schedule: "*/10 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: busybox
+            image: busybox:1.36
+            command: ["sh", "-c", "echo 'Current time is: $(date)'"]
+          restartPolicy: OnFailure
+  successfulJobsHistoryLimit: 5
+  failedJobsHistoryLimit: 5
 ```
