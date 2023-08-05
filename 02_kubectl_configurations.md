@@ -1,34 +1,72 @@
-# Context
+# Configurations
+
+## `kubectl`
+
+https://kubernetes.io/docs/reference/kubectl/cheatsheet/#kubectl-autocomplete
+
+```shell
+kubectl version --output=yaml
+```
+
+```shell
+apt install bash-completion 
+source <(kubectl completion bash)
+echo "source <(kubectl completion bash)" >> ~/.bashrc
+```
+
+```shell
+source <(kubectl completion zsh)
+echo '[[ $commands[kubectl] ]] && source <(kubectl completion zsh)' >> ~/.zshrc
+```
+
+```shell
+alias k=kubectl
+complete -o default -F __start_kubectl k
+```
+
+## Context
 
 https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters
 
-Get cluster information
+See cluster information
 ```shell
 kubectl config get-contexts
 ```
 
+See current namespace
 ```shell
 kubectl config view | grep namespace
 ```
 
+Edit current namespace
 ```shell
 kubectl config set-context --current --namespace=default
 ```
+## GCP
 
-## Resources
+https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl
 
 ```shell
-kubectl get all --namespace animal
+gcloud auth list
 ```
 
 ```shell
-kubectl get namespace
+gcloud auth login
+gcloud init
+gcloud container clusters get-credentials CLUSTER_NAME \
+    --region=CLUSTER_REGION
+```
+
+## AWS
+
+https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+
+https://docs.aws.amazon.com/eks/latest/userguide/create-kubeconfig.html
+
+```shell
+aws configure
 ```
 
 ```shell
-kubectl get service
-```
-
-```shell
-kubectl get deployment
+aws eks update-kubeconfig --region region-code --name my-cluster
 ```
