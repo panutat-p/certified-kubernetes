@@ -1,20 +1,22 @@
 # Workload Resources
 
+https://kubernetes.io/docs/concepts/workloads/controllers
+
 ## Pod
 
 ```yaml
 apiVersion: v1
 kind: Pod
 metadata:
-  name: nginx-pod
-  namespace: dev
+  name: nginx
+  namespace: reddit
   labels:
     owner: panda
     app: nginx
 spec:
   containers:
     - name: nginx
-      image: nginx:latest
+      image: nginx:1.25-bookworm
       ports:
         - containerPort: 80
 ```
@@ -25,8 +27,8 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
-  namespace: dev
+  name: nginx
+  namespace: reddit
 spec:
   replicas: 3
   selector:
@@ -41,7 +43,7 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: nginx:latest
+          image: nginx:1.25-bookworm
           ports:
             - containerPort: 80
 ```
