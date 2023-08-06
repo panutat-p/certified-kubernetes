@@ -1,4 +1,8 @@
-# Volumes
+# Storages
+
+https://kubernetes.io/docs/concepts/storage
+
+## Volume
 
 * Any data written to this directory within the container will be stored in the `emptyDir` volume associated with the pod
 * This `emptyDir` volume is non-persistent and will lose its data if the pod is terminated or rescheduled to a different node.
@@ -28,23 +32,12 @@ spec:
 kubectl cp ~/index.html nginx-pod:/usr/share/nginx/html/index.html
 ```
 
-## Redis
+## Persistent Volumes
 
-```yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: redis-pod
-spec:
-  containers:
-    - name: redis
-      image: redis
-      ports:
-        - containerPort: 6379
-      volumeMounts:
-        - name: redis-data
-          mountPath: /data
-  volumes:
-    - name: redis-data
-      emptyDir: {}
-```
+## Static PV
+
+An administrator creates a number of PVs that carry the details of the real storage, which is available for use by cluster users.
+
+### Dynamic PV
+
+When none of the static PVs match a PVC, the cluster may try to dynamically provision a PV specially for the PVC.
