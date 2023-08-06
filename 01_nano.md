@@ -17,6 +17,9 @@ set tabstospaces
 set tabsize 2
 set autoindent
 set indicator
+set mouse
+
+color magenta "^\s*[\$A-Za-z0-9_-]+\:"
 ```
 
 ## Import system nano configurations
