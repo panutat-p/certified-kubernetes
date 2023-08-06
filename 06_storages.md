@@ -4,10 +4,10 @@ https://kubernetes.io/docs/concepts/storage
 
 ## Empty directory
 
-* Any data written to this directory within the container will be stored in the `emptyDir` volume associated with the pod
-* This `emptyDir` volume is non-persistent and will lose its data if the pod is terminated or rescheduled to a different node.
-
-## Nginx
+* An `emptyDir` volume is first created (initially empty) when a Pod is assigned to a node
+* An `emptyDir` volume is non-persistent and will lose its data if the pod is terminated or rescheduled to a different node
+* A container crashing does not remove a Pod from a node, the data in an `emptyDir` volume is safe across container crashes
+* An `emptyDir` volume shares storage between containers in the same Pod
 
 ```yaml
 apiVersion: v1
@@ -25,7 +25,8 @@ spec:
           mountPath: /usr/share/nginx/html
   volumes:
     - name: html-volume
-      emptyDir: {}
+      emptyDir:
+        sizeLimit: "1Gi"
 ```
 
 ```shell
@@ -33,6 +34,8 @@ kubectl cp ~/index.html nginx-pod:/usr/share/nginx/html/index.html
 ```
 
 ## ConfigMap as ENV
+
+* A `ConfigMap` is always mounted as `readOnly`
 
 https://stackoverflow.com/a/66455621
 
