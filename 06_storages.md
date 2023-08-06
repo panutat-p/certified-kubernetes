@@ -112,15 +112,9 @@ spec:
         name: nginx-configmap
 ```
 
-# Secrets
+## Secret keys
 
-Guideline\
 https://opensource.com/article/19/6/introduction-kubernetes-secrets-and-configmaps
-
-## Read secret by key
-
-`env.name` will be the environment variable name\
-`secretKeyRef.key` need to match the Secret data
 
 ```yaml
 apiVersion: v1
@@ -134,20 +128,20 @@ data:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: redis-pod
+  name: redis
 spec:
   containers:
     - name: redis
-      image: redis
+      image: redis:7
       env:
-        - name: REDIS_PASSWORD
+        - name: REDIS_PASSWORD # container variable name
           valueFrom:
             secretKeyRef:
               name: redis-secret
-              key: redis-password
+              key: redis-password # key in secret
 ```
 
-## Read whole secret object
+## Secret reference
 
 https://kubernetes.io/docs/tasks/inject-data-application/distribute-credentials-secure/#configure-all-key-value-pairs-in-a-secret-as-container-environment-variables
 
@@ -163,17 +157,17 @@ data:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: redis-pod
+  name: redis
 spec:
   containers:
     - name: redis
-      image: redis
+      image: redis:7
       envFrom:
         - secretRef:
             name: redis-secret
 ```
 
-## Mount secret object
+## Secret as a volume
 
 ```yaml
 apiVersion: v1
