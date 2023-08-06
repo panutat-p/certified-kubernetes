@@ -112,7 +112,7 @@ spec:
         name: nginx-configmap
 ```
 
-## Secret keys
+## Secret key as ENV
 
 https://opensource.com/article/19/6/introduction-kubernetes-secrets-and-configmaps
 
@@ -141,7 +141,7 @@ spec:
               key: redis-password # key in secret
 ```
 
-## Secret reference
+## Secret as ENV
 
 https://kubernetes.io/docs/tasks/inject-data-application/distribute-credentials-secure/#configure-all-key-value-pairs-in-a-secret-as-container-environment-variables
 
