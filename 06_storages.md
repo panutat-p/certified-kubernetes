@@ -2,7 +2,7 @@
 
 https://kubernetes.io/docs/concepts/storage
 
-## Volume
+## Empty directory
 
 * Any data written to this directory within the container will be stored in the `emptyDir` volume associated with the pod
 * This `emptyDir` volume is non-persistent and will lose its data if the pod is terminated or rescheduled to a different node.
@@ -30,6 +30,83 @@ spec:
 
 ```shell
 kubectl cp ~/index.html nginx-pod:/usr/share/nginx/html/index.html
+```
+
+## ConfigMap as ENV
+
+https://stackoverflow.com/a/66455621
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: redis-config
+data:
+  REDIS_BIND_ADDRESS: "0.0.0.0"
+  REDIS_PORT: "6379"
+  REDIS_TIMEOUT: "300"
+  REDIS_PASSWORD: "mypassword"
+---
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: redis-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis-app
+  template:
+    metadata:
+      labels:
+        app: redis-app
+    spec:
+      containers:
+        - name: redis-container
+          image: redis
+          ports:
+            - containerPort: 6379
+          envFrom:
+            - configMapRef:
+                name: redis-config
+```
+
+## ConfigMap as volume
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-configmap
+data:
+  nginx.conf: |
+    server {
+      listen 8080;
+      server_name localhost;
+    }
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: website
+  namespace: reddit
+  labels:
+    owner: panda
+    app: website
+spec:
+  containers:
+    - name: nginx
+      image: nginx:1.25-bookworm
+      ports:
+        - containerPort: 80
+      volumeMounts:
+        - name: nginx-volume
+          mountPath: /etc/nginx/nginx.conf
+          subPath: nginx.conf
+  volumes:
+    - name: nginx-volume
+      configMap:
+        name: nginx-configmap
 ```
 
 ## Persistent Volumes
