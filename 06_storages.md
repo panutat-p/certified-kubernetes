@@ -34,7 +34,7 @@ kubectl cp ~/index.html nginx-pod:/usr/share/nginx/html/index.html
 
 ## Persistent Volumes
 
-## Static PV
+### Static PV
 
 An administrator creates a number of PVs that carry the details of the real storage, which is available for use by cluster users.
 
