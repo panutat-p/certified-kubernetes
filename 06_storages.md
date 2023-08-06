@@ -41,3 +41,5 @@ An administrator creates a number of PVs that carry the details of the real stor
 ### Dynamic PV
 
 When none of the static PVs match a PVC, the cluster may try to dynamically provision a PV specially for the PVC.
+
+https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage
