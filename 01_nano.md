@@ -18,7 +18,7 @@ set tabsize 2
 set autoindent
 
 syntax "yaml" "\.ya?ml$"
-color magenta "^\s*[A-Za-z0-9_-$]+:"
+color magenta "^\s*[A-Za-z0-9_-]+:"
 color brightred ":"
 ```
 
