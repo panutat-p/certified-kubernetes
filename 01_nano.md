@@ -16,10 +16,10 @@ set linenumbers
 set tabstospaces
 set tabsize 2
 set autoindent
-set indicator
-set mouse
 
-color orange "^\s*[\w$_-]+:"
+syntax "yaml" "\.ya?ml$"
+color magenta "^\s*[A-Za-z0-9_-$]+:"
+color brightred ":"
 ```
 
 ## Import system nano configurations
@@ -28,10 +28,7 @@ color orange "^\s*[\w$_-]+:"
 > including Ubuntu, Debian, and CentOS. This path is a common location for nano's syntax highlighting files.
 
 ```shell
-ls /usr/share/nano/yaml.nanorc
-
 ls -la /usr/share/nano
-cat 
 ```
 
 `~/.nanorc`
