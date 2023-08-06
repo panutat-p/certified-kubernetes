@@ -61,7 +61,8 @@ spec:
       containers:
       - name: busybox
         image: busybox:1.36
-        command: ["sh", "-c", "echo 'Current time is: $(date)'"]
+        command: ["sh", "-c"]
+        args: ["echo 'Current time is: $(date)'"]
       restartPolicy: OnFailure
   backoffLimit: 5
 ```
@@ -85,7 +86,8 @@ spec:
           containers:
           - name: busybox
             image: busybox:1.36
-            command: ["sh", "-c", "echo 'Current time is: $(date)'"]
+            command: ["sh", "-c"]
+            args: ["echo 'Current time is: $(date)'"]
           restartPolicy: OnFailure
   successfulJobsHistoryLimit: 5
   failedJobsHistoryLimit: 5
