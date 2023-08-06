@@ -19,7 +19,7 @@ set autoindent
 set indicator
 set mouse
 
-color magenta "^\s*[\$A-Za-z0-9_-]+\:"
+color orange "^\s*[\w$_-]+:"
 ```
 
 ## Import system nano configurations
@@ -29,6 +29,9 @@ color magenta "^\s*[\$A-Za-z0-9_-]+\:"
 
 ```shell
 ls /usr/share/nano/yaml.nanorc
+
+ls -la /usr/share/nano
+cat 
 ```
 
 `~/.nanorc`
