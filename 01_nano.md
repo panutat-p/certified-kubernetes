@@ -1,9 +1,15 @@
 # Nano
 
-## Version
+```shell
+whereis nano
+```
 
 ```shell
 nano --version
+```
+
+```shell
+man nanorc
 ```
 
 ## Configurations
@@ -24,16 +30,14 @@ set tabsize 2
 set tabstospaces
 set autoindent
 
-bind ^X cut main
+bind ^Z undo main
+bind ^X redo main
 bind ^C copy main
 bind ^V paste main
 bind ^F whereis main
 bind ^G wherewas main
-bind ^Q findprevious main
-bind ^W findnext main
-bind ^R replace main
 
-syntax "yaml" "\.ya?ml$"
+syntax yaml "\.ya?ml$"
 color magenta "^\s*[A-Za-z0-9_-]+:"
 color brightred ":"
 ```
