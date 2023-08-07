@@ -31,6 +31,7 @@ bind ^F whereis main
 bind ^G wherewas main
 bind ^Q findprevious main
 bind ^W findnext main
+bind ^R replace main
 
 syntax "yaml" "\.ya?ml$"
 color magenta "^\s*[A-Za-z0-9_-]+:"
