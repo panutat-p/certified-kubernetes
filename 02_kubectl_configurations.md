@@ -24,24 +24,6 @@ alias k=kubectl
 complete -o default -F __start_kubectl k
 ```
 
-## Context
-
-https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters
-
-See cluster information
-```shell
-kubectl config get-contexts
-```
-
-See current namespace
-```shell
-kubectl config view | grep namespace
-```
-
-Edit current namespace
-```shell
-kubectl config set-context --current --namespace=default
-```
 ## GCP
 
 https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl
