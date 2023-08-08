@@ -39,6 +39,11 @@ gcloud container clusters get-credentials CLUSTER_NAME \
     --region=CLUSTER_REGION
 ```
 
+See cluster information
+```shell
+kubectl config get-contexts
+```
+
 ## AWS
 
 https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
@@ -51,4 +56,9 @@ aws configure
 
 ```shell
 aws eks update-kubeconfig --region region-code --name my-cluster
+```
+
+See cluster information
+```shell
+kubectl config get-contexts
 ```
