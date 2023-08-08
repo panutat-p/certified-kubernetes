@@ -12,6 +12,16 @@ kubectl explain pod.spec.containers --recursive | less
 kubectl explain pod.spec.volumes --recursive | less
 ```
 
+## Context
+
+```shell
+kubectl config view | grep namespace
+```
+
+```shell
+kubectl config set-context --current --namespace=reddit
+```
+
 ## Resources
 
 ```shell
