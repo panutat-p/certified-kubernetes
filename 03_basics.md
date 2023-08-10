@@ -30,6 +30,10 @@ kubectl config set-context --current --namespace=reddit
 kubectl run nginx --image=nginx -n reddit
 ```
 
+```shell
+kubectl create deploy httpd-frontend --image nginx:1.25 --replicas 3 --dry-run=client -o yaml
+```
+
 Listen on port 4000 on the local machine
 ```shell
 kubectl port-forward nginx 4000:80
