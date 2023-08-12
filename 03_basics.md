@@ -9,6 +9,14 @@ kubectl api-resources
 ```
 
 ```shell
+kubectl create -h
+kubectl run -h
+kubectl expose -h
+kubectl scale -h
+kubectl exec -h
+```
+
+```shell
 kubectl explain pod.spec --recursive | less
 kubectl explain pod.spec.containers --recursive | less
 kubectl explain pod.spec.volumes --recursive | less
@@ -47,11 +55,6 @@ kubectl expose pod nginx-pod --type=ClusterIP --port=80 --target-port=80 --name=
 
 ```shell
 kubectl create deploy httpd --image httpd --replicas 3 -o yaml --dry-run=client
-```
-
-Listen on port 4000 on the local machine
-```shell
-kubectl port-forward nginx 4000:80
 ```
 
 ## Resources
