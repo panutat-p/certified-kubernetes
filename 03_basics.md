@@ -16,22 +16,37 @@ kubectl explain pod.spec.volumes --recursive | less
 
 ## Context
 
-```shell
-kubectl config view | grep namespace
-```
+https://kubernetes.io/docs/reference/kubectl/cheatsheet/#kubectl-context-and-configuration
 
-```shell
-kubectl config set-context --current --namespace=reddit
+```bash
+#!/bin/bash
+kn() {
+  [ "$1" ] && kubectl config set-context --current --namespace $1 || kubectl config view --minify | grep namespace
+}
 ```
 
 ## Quick run
 
 ```shell
-kubectl run nginx --image=nginx -n reddit
+kubectl create deploy web --image nginx:1.25 --port 80 --replicas 3 -o yaml
 ```
 
 ```shell
-kubectl create deploy httpd-frontend --image nginx:1.25 --replicas 3 --dry-run=client -o yaml
+kubectl create svc clusterip nginx-service --tcp 80:80 nginx:1.25 --replicas 3 -o yaml
+```
+
+```shell
+kubectl run nginx-pod --image=nginx:1.25 --port 80 --labels app=nginx -o yaml
+```
+
+```shell
+kubectl expose pod nginx-pod --type=ClusterIP --port=80 --target-port=80 --name=nginx-service
+```
+
+## Dry run
+
+```shell
+kubectl create deploy httpd --image httpd --replicas 3 -o yaml --dry-run=client
 ```
 
 Listen on port 4000 on the local machine
