@@ -17,9 +17,13 @@ kubectl exec -h
 ```
 
 ```shell
-kubectl explain pod.spec --recursive | less
+kubectl explain pod.spec | less
 kubectl explain pod.spec.containers --recursive | less
-kubectl explain pod.spec.volumes --recursive | less
+```
+
+```shell
+kubectl explain deploy.spec.template | less
+kubectlexplain deploy.spec.template.spec --recursive | less
 ```
 
 ## Context
