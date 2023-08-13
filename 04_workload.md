@@ -9,10 +9,10 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: nginx
-  namespace: reddit
+  namespace: demo
   labels:
-    owner: panda
-    app: nginx
+    owner: admin
+    app: ubuntu
 spec:
   serviceAccountName: default
   securityContext:
@@ -38,12 +38,12 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx
-  namespace: reddit
+  namespace: demo
 spec:
   replicas: 3
   selector:
     matchLabels:
-      owner: panda
+      owner: admin
       app: nginx
   template:
     metadata:
@@ -66,7 +66,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: simple-job
-  namespace: reddit
+  namespace: demo
 spec:
   template:
     spec:
@@ -89,7 +89,7 @@ apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: simeple-cron-job
-  namespace: reddit
+  namespace: demo
 spec:
   schedule: "*/10 * * * *"
   jobTemplate:
