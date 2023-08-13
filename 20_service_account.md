@@ -1,5 +1,11 @@
 # Service Account
 
+https://kubernetes.io/docs/concepts/security/service-accounts
+
+* A service account is a type of non-human account
+* Kubernetes automatically creates `default` service accounts for every namespace in your cluster
+* If RABC is enabled, the `default` service accounts in each namespace get no permissions other than the default API discovery permissions
+
 ## KEP-1205
 
 https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/1205-bound-service-account-tokens
@@ -28,4 +34,9 @@ kubectl create serviceaccount dashboard
 Create time-bound (1h) tokens using `TokenRequestAPI`
 ```shell
 kubectl create token dashboard
+```
+
+Expect: no secret
+```
+kubectl get secret
 ```
