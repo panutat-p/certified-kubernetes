@@ -16,30 +16,16 @@ https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/2799-reduct
 * Encourage users to use `TokenRequestAPI` or manually-created secret-based service account tokens
 * Create a service account will not create a `service_account_token`
 
-## Commands
+## Demo
 
 https://www.linkedin.com/pulse/service-account-token-changes-kubernetes-version-124-shafeeque-aslam
 
-```shell
-kubectl get serviceaccount
-```
-
-create a service account and token
-
+Create a service account without secret or token
 ```shell
 kubectl create serviceaccount dashboard
 ```
 
+Create time-bound (1h) tokens using `TokenRequestAPI`
 ```shell
 kubectl create token dashboard
 ```
-
-```shell
-kubectl describe serviceaccount dashboard
-```
-
-```shell
-kubectl describe serviceaccount dashboard-token-kbbdm
-```
-
-use this token to authenticate into Kubernetes Dashbboard
