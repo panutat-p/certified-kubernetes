@@ -8,7 +8,7 @@ https://kubernetes.io/docs/concepts/workloads/controllers
 apiVersion: v1
 kind: Pod
 metadata:
-  name: nginx
+  name: ubuntu
   namespace: demo
   labels:
     owner: admin
@@ -69,6 +69,10 @@ metadata:
   namespace: demo
 spec:
   template:
+    metadata:
+      labels:
+        owner: admin
+        app: simple-job
     spec:
       containers:
       - name: busybox
@@ -95,6 +99,10 @@ spec:
   jobTemplate:
     spec:
       template:
+        metadata:
+          labels:
+            owner: admin
+            app: simple-job
         spec:
           containers:
           - name: busybox
