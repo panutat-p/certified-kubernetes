@@ -14,11 +14,18 @@ metadata:
     owner: panda
     app: nginx
 spec:
+  securityContext:
+    runAsUser: 1000
+    runAsGroup: 3000
+    fsGroup: 2000
   containers:
     - name: nginx
       image: nginx:1.25-bookworm
       ports:
         - containerPort: 80
+      securityContext:
+        capabilities:
+          add: ['NET_ADMIN', 'SYS_TIME']
 ```
 
 ## Deployment
