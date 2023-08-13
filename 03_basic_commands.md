@@ -23,7 +23,7 @@ kubectl explain pod.spec.containers --recursive | less
 
 ```shell
 kubectl explain deploy.spec.template | less
-kubectlexplain deploy.spec.template.spec --recursive | less
+kubectl explain deploy.spec.template.spec --recursive | less
 ```
 
 ## Context
