@@ -74,6 +74,7 @@ spec:
         owner: admin
         app: simple-job
     spec:
+      serviceAccountName: default
       containers:
       - name: busybox
         image: busybox:1.36
@@ -104,6 +105,7 @@ spec:
             owner: admin
             app: simple-job
         spec:
+          serviceAccountName: default
           containers:
           - name: busybox
             image: busybox:1.36
