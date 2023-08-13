@@ -5,9 +5,9 @@
 https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/1205-bound-service-account-tokens
 
 * Implement `TokenRequestAPI` in the core `apiserver`
-* A secret object is no longer mounted as a volume to a newly created object
-* A `ServiceAccountToken` is mounted as a projected volume to a newly created object
-* A `ServiceAccountToken` is audience bound, time bound, and object bound
+* A `secret` is no longer mounted as a volume to a newly created object
+* A `service_account_token` is mounted as a projected volume to a newly created object
+* A `service_account_token` is audience bound, time bound, and object bound
 
 ## KEP-2799
 
