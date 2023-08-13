@@ -14,15 +14,18 @@ metadata:
     owner: panda
     app: nginx
 spec:
+  serviceAccountName: default
   securityContext:
     runAsUser: 1000
     runAsGroup: 3000
     fsGroup: 2000
   containers:
-    - name: nginx
-      image: nginx:1.25-bookworm
+    - name: ubuntu
+      image: ubuntu:23.10
       ports:
         - containerPort: 80
+      command: ['sleep']
+      args: ['infinity']
       securityContext:
         capabilities:
           add: ['NET_ADMIN', 'SYS_TIME']
@@ -48,6 +51,7 @@ spec:
         owner: panda
         app: nginx
     spec:
+      serviceAccountName: default
       containers:
         - name: nginx
           image: nginx:1.25-bookworm
