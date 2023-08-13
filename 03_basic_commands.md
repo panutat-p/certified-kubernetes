@@ -1,4 +1,4 @@
-# Basics
+# Basic Commands
 
 https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands
 
