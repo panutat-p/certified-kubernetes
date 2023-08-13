@@ -54,29 +54,33 @@ kubectl expose pod nginx-pod --type=ClusterIP --port=80 --target-port=80 --name=
 ## Dry run
 
 ```shell
-kubectl create deploy httpd --image httpd --replicas 3 -o yaml --dry-run=client
+kubectl create deploy httpd --image httpd:2.4 --replicas 3 -o yaml --dry-run=client
 ```
 
 ## Resources
 
 ```shell
-kubectl get all -n reddit
+kubectl describe svc/name
+kubectl describe deploy/name
+kubectl describe pod/name
 ```
 
 ```shell
-kubectl logs -f my-pod -n reddit
+kubectl get pod/name -o yaml
 ```
 
 ```shell
-kubectl exec my-pod -n reddit -- ls
+kubectl get pod/name -o yaml > pod.yaml
+```
+
+## Execute commands
+
+```shell
+kubectl exec my-pod -- ls
 ```
 
 ```shell
-kubectl exec --stdin --tty my-pod -n reddit -- /bin/bash
-```
-
-```shell
-kubectl get deploy/name -n dev
+kubectl exec --stdin --tty my-pod -- /bin/bash
 ```
 
 ## Create / Update / Delete
@@ -91,16 +95,4 @@ kubectl create -f file.yaml
 
 ```shell
 kubectl delete -f file.yaml
-```
-
-## Inspect
-
-```shell
-kubectl describe svc/name -n reddit
-kubectl describe deploy/name -n reddit
-kubectl describe pod/name -n reddit
-```
-
-```shell
-kubectl get pod/nginx -o yaml -n reddit > nginx.yaml
 ```
