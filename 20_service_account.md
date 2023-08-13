@@ -14,7 +14,7 @@ https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/1205-bound-
 https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/2799-reduction-of-secret-based-service-account-token
 
 * Encourage users to use `TokenRequestAPI` or manually-created secret-based service account tokens
-* Create a service account will not create a token
+* Create a service account will not create a `service_account_token`
 
 ## Commands
 
