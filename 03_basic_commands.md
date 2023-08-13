@@ -52,6 +52,10 @@ kubectl run nginx-pod --image=nginx:1.25 --port 80 --labels app=nginx -o yaml
 ```
 
 ```shell
+kubectl run ubuntu --image ubuntu:23.10 --labels app=ubuntu --command -- sleep infinity
+```
+
+```shell
 kubectl expose pod nginx-pod --type=ClusterIP --port=80 --target-port=80 --name=nginx-service
 ```
 
