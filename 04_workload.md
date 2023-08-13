@@ -62,6 +62,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: simple-job
+  namespace: reddit
 spec:
   template:
     spec:
@@ -84,6 +85,7 @@ apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: simeple-cron-job
+  namespace: reddit
 spec:
   schedule: "*/10 * * * *"
   jobTemplate:
