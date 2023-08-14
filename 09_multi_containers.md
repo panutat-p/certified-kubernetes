@@ -47,7 +47,7 @@ metadata:
 spec:
   serviceAccountName: default
   containers:
-    - name: app
+    - name: elasticsearch
       image: elasticsearch:6.4.2
        ports:
          - containerPort: 9200
