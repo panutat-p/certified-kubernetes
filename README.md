@@ -52,7 +52,7 @@ https://hub.docker.com/_/postgres
 `elasticsearch:8.8.1`\
 https://hub.docker.com/_/elasticsearch
 
-`elastic/filebeat:8.9.0`
+`elastic/filebeat:8.9.0`\
 https://hub.docker.com/r/elastic/filebeat
 
 `ubuntu:23.10`\
