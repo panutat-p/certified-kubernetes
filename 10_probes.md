@@ -17,7 +17,7 @@ spec:
   serviceAccountName: default
   containers:
     - name: nginx
-      image: nginx
+      image: nginx:1.25
       ports:
         - containerPort: 80
       livenessProbe:
