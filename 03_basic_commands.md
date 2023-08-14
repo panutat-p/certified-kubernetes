@@ -31,7 +31,6 @@ kubectl explain deploy.spec.template.spec --recursive | less
 https://kubernetes.io/docs/reference/kubectl/cheatsheet/#kubectl-context-and-configuration
 
 ```bash
-#!/bin/bash
 kn() {
   [ "$1" ] && kubectl config set-context --current --namespace $1 || kubectl config view --minify | grep namespace
 }
