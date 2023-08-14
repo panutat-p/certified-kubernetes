@@ -31,7 +31,8 @@ set tabstospaces
 set autoindent
 
 bind ^z undo main
-bind ^x redo main
+bind ^a redo main
+bind ^x cut main
 bind ^c copy main
 bind ^v paste main
 bind ^f whereis main
