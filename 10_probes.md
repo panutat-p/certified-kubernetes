@@ -80,6 +80,8 @@ spec:
   containers:
     - name: redis
       image: redis:7
+      ports:
+        - containerPort: 6379
       livenessProbe:
         tcpSocket:
           port: 6379
