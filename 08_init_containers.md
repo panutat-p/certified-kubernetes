@@ -4,7 +4,7 @@ https://kubernetes.io/docs/concepts/workloads/pods/init-containers
 
 * Each init container must exit successfully before the next container starts
 * If a container fails to start due to the runtime or exits with failure, it is retried according to the Pod `restartPolicy`
-* A pod cannot be Ready until all init containers have succeeded
+* A pod cannot be `Ready` until all init containers have succeeded
 
 ## Example Nginx
 
