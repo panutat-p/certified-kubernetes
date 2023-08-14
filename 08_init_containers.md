@@ -24,6 +24,9 @@ spec:
       image: nginx:1.25
       ports:
         - containerPort: 80
+      volumeMounts:
+        - name: conf-volume
+          mountPath: /etc/nginx
   initContainers:
     - name: download-nginx-conf
       image: busybox:1.36
