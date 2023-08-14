@@ -1,4 +1,6 @@
-# Multi-container Pods
+# Sicecar Container
+
+https://kubernetes.io/docs/concepts/cluster-administration/logging/#sidecar-container-with-a-logging-agent
 
 ## Example Elastic stack
 
