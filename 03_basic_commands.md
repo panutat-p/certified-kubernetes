@@ -37,6 +37,12 @@ kn() {
 }
 ```
 
+## Get
+
+```shell
+kubectl get all -l app=nginx
+```
+
 ## Quick run
 
 ```shell
