@@ -28,7 +28,7 @@ kubectl explain deploy.spec.template.spec --recursive | less
 
 ## Get
 
-```
+```shell
 kubectl get all -A
 ```
 
@@ -46,6 +46,10 @@ kubectl get sa
 
 ```shell
 kubectl get ing
+```
+
+```shell
+kubectl get netpol
 ```
 
 ## Create
