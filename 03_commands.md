@@ -71,7 +71,8 @@ kubectl expose pod nginx-pod --type=ClusterIP --port=80 --target-port=80 --name=
 ```
 
 ```shell
-kubectl create ing ingress --rule example.com/items*=example-service:80
+kubectl create ing item --class=default --rule example.com/items*=item-service:80
+kubectl create ing payment --class=default --rule="/pay=pay-service:8282"
 ```
 
 ## Dry run
