@@ -28,8 +28,24 @@ kubectl explain deploy.spec.template.spec --recursive | less
 
 ## Get
 
+```
+kubectl get all -A
+```
+
 ```shell
 kubectl get all -l app=nginx
+```
+
+```shell
+kubectl get ns
+```
+
+```shell
+kubectl get sa
+```
+
+```shell
+kubectl get ing
 ```
 
 ## Quick run
@@ -52,6 +68,10 @@ kubectl run ubuntu --image ubuntu:23.10 --labels app=ubuntu --command -- sleep i
 
 ```shell
 kubectl expose pod nginx-pod --type=ClusterIP --port=80 --target-port=80 --name=nginx-service
+```
+
+```shell
+kubectl create ing ingress --rule example.com/items*=example-service:80
 ```
 
 ## Dry run
