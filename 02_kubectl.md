@@ -24,6 +24,12 @@ alias k=kubectl
 complete -o default -F __start_kubectl k
 ```
 
+```shell
+kn() {
+  [ "$1" ] && kubectl config set-context --current --namespace $1 || kubectl config view --minify | grep namespace
+}
+```
+
 ## GCP
 
 https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl
