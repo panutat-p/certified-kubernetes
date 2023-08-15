@@ -1,5 +1,7 @@
 # Ingress Controller
 
+https://docs.nginx.com/nginx-ingress-controller
+
 * Kubernetes does not come with Ingress Controller by default
 * Popular choices: `GKE Ingress`, `Nginx`, `Contour`, `HAProxy`, `Traefik`, `Istio`
 * Example nginx ingress controller
