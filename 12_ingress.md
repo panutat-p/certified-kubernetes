@@ -6,21 +6,33 @@
 *  Define rules to route traffic to specific services or pods based on criteria
 *  Create an ingress alone will not work because Kubernetes does not have `Ingress Controller` out of the box
 
+## Example
+
 ```yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: example-ingress
+  name: sample-ingress
+  namespace: demo
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   rules:
-    - host: example.com
-      http:
+    - http:
         paths:
-          - path: /items
+          - path: /wear
             pathType: Prefix
             backend:
               service:
-                name: example-service
+                name: wear-service
                 port:
-                  number: 80
+                  number: 8080
+          - path: /watch
+            pathType: Prefix
+            backend:
+              service:
+                name: video-service
+                port:
+                  number: 8080
 ```
