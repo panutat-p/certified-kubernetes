@@ -42,3 +42,9 @@ syntax yaml "\.ya?ml$"
 color magenta "^\s*[A-Za-z0-9_-]+:"
 color brightred ":"
 ```
+
+`.bashrc`
+```
+export KUBE_EDITOR=nano
+export EDITOR=nano
+```
