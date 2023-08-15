@@ -2,6 +2,10 @@
 
 https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes
 
+* The `kubelet` uses liveness probes to know when to restart a container
+* The `kubelet` uses readiness probes to know when a container is ready to start accepting traffic
+  * A Pod is considered ready when all of its containers are ready
+
 ## HTTP probes
 
 ```yaml
