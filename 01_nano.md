@@ -48,3 +48,20 @@ color brightred ":"
 export KUBE_EDITOR=nano
 export EDITOR=nano
 ```
+
+# Utilities
+
+```shell
+enc() {
+  echo -n "$1" | base64
+  echo
+}
+```
+
+```shell
+dec() {
+  echo -n "$1" | base64 -d
+  echo
+}
+
+```
