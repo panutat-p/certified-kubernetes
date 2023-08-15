@@ -48,7 +48,7 @@ kubectl get sa
 kubectl get ing
 ```
 
-## Quick run
+## Create
 
 ```shell
 kubectl create deploy web --image nginx:1.25 --port 80 --replicas 3 -o yaml
@@ -106,7 +106,7 @@ kubectl exec my-pod -- ls
 kubectl exec --stdin --tty my-pod -- /bin/bash
 ```
 
-## Create / Update / Delete
+## Manifest file
 
 ```shell
 kubectl apply -f file.yaml
