@@ -12,9 +12,10 @@ https://docs.linuxfoundation.org/tc-docs/certification/lf-handbook2
 must read\
 https://docs.linuxfoundation.org/tc-docs/certification/tips-cka-and-ckad
 
-https://www.cncf.io/announcements/2021/06/02/linux-foundation-kubernetes-certifications-now-include-exam-simulator
-
 ## Simulators
+
+Official exam simulator\
+https://www.cncf.io/announcements/2021/06/02/linux-foundation-kubernetes-certifications-now-include-exam-simulator
 
 https://killer.sh/faq
 
