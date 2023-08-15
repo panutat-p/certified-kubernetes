@@ -8,6 +8,9 @@
 
 ## Example
 
+Why we need `rewrite-target`?\
+https://www.udemy.com/course/certified-kubernetes-application-developer/learn/lecture/16716434#questions
+
 ```yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress
