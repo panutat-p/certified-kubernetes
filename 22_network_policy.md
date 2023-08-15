@@ -2,48 +2,43 @@
 
 https://kubernetes.io/docs/concepts/services-networking/network-policies
 
-* ⚠️ By default, a pod is non-isolated for ingress and egress
-* NetworkPolicies control traffic flow at the IP address or port level (OSI layer 3 or 4)
-* NetworkPolicies apply to a connection with a pod on one or both ends
+* NetworkPolicy requires a plugin, creating a NetworkPolicy resource without a controller that implements it will have no effect
+* ⚠️ By default, all pods are non-isolated for ingress and egress
+* NetworkPolicy control traffic flow at the IP address or port level (OSI layer 3 or 4)
+* NetworkPolicy apply to a connection with a pod on one or both ends
 
-## Example 1: Block all traffic
-
-```yaml
----
-apiVersion: networking.k8s.io/v1
-kind: NetworkPolicy
-metadata:
-  name: default-deny-ingress
-spec:
-  podSelector: {}
-  policyTypes:
-  - Ingress
-```
-
-## Example 2: Allow Nginx traffic to the pod
-
-Use a selector to specify what traffic is allowed to and from the pod
+## Allow internal pod to access payroll pod and MySQL pod
 
 ```yaml
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: allow-nginx-to-httpd
+  name: internal-policy
+  namespace: default
 spec:
   podSelector:
     matchLabels:
-      app: httpd
-  ingress:
-  - from:
-    - podSelector:
-        matchLabels:
-          app: nginx
-    ports:
-    - protocol: TCP
-      port: 80
+      name: internal
+  policyTypes:
+    - Egress
+  egress:
+    - to:
+      - podSelector:
+          matchLabels:
+            name: payroll
+      ports:
+        - protocol: TCP
+          port: 8080
+    - to:
+      - podSelector:
+          matchLabels:
+            name: mysql
+      ports:
+        - protocol: TCP
+          port: 3306
 ```
 
-## Example 3: Block IP Addresses
+## Block IP address range
 
 ```yaml
 apiVersion: networking.k8s.io/v1
