@@ -52,16 +52,19 @@ export EDITOR=nano
 # Utilities
 
 ```shell
+alias c='clear'
+alias l='ls -laF'
+alias ll='ls -lF'
+```
+
+```shell
 enc() {
   echo -n "$1" | base64
   echo
 }
-```
 
-```shell
 dec() {
   echo -n "$1" | base64 -d
   echo
 }
-
 ```
