@@ -8,7 +8,7 @@ https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-vo
   * When none of the static PVs match a PVC, the cluster may try to dynamically provision a PV specially for the PVC.
 * A PVC with its `storageClassName` set equal to `""` is always interpreted to be requesting a PV with no class
 
-## PV host path
+## PV host path, PVC, pod
 
 ```yaml
 apiVersion: v1
@@ -29,8 +29,6 @@ spec:
     path: /pv/log
 ```
 
-## PVC for logging
-
 ```yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -39,8 +37,12 @@ metadata:
 spec:
   volumeMode: Filesystem
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
       storage: 50Mi
+```
+
+```yaml
+
 ```
