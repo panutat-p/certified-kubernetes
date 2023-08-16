@@ -2,11 +2,14 @@
 
 https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage
 
-* Static PV
-  * An administrator creates a number of PVs that carry the details of the real storage, which is available for use by cluster users.
-* Dynamic PV
-  * When none of the static PVs match a PVC, the cluster may try to dynamically provision a PV specially for the PVC.
+* Static PV\
+An administrator creates a number of PVs that carry the details of the real storage, which is available for use by cluster users.
+* Dynamic PV\
+When none of the static PVs match a PVC, the cluster may try to dynamically provision a PV specially for the PVC.
 * A PVC with its `storageClassName` set equal to `""` is always interpreted to be requesting a PV with no class
+* The `Retain` reclaim policy allows for manual reclamation of the resource.\
+When the PVC is deleted, the PV still exists and the volume is considered `released`\
+But it is not yet available for another claim because the previous claimant's data remains on the volume
 
 ## PV host path -> PVC -> pod
 
