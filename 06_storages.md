@@ -33,6 +33,31 @@ spec:
 kubectl cp ~/index.html nginx-pod:/usr/share/nginx/html/index.html
 ```
 
+## Host path
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: event-simulator
+  namespace: demo
+  labels:
+    app: event-simulator
+spec:
+  containers:
+    - name: event-simulator
+      image: kodekloud/event-simulator
+      volumeMounts:
+        - name: log-volume
+          mountPath: /log
+  volumes:
+    - name: log-volume
+      hostPath:
+        type: Directory
+        path: /var/log/webapp
+
+```
+
 ## ConfigMap as ENV
 
 * A `ConfigMap` is always mounted as `readOnly`
