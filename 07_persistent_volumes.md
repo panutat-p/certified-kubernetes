@@ -28,3 +28,19 @@ spec:
   hostPath:
     path: /pv/log
 ```
+
+## PVC for logging
+
+```yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: claim-log-1
+spec:
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 50Mi
+```
