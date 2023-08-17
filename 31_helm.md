@@ -2,7 +2,7 @@
 
 https://helm.sh/docs/intro/using_helm
 
-## Repository
+## Install NGINX chart via repository
 
 https://charts.bitnami.com
 
@@ -26,16 +26,16 @@ helm search repo nginx
 helm install my-nginx bitnami/nginx
 ```
 
-## Install NGINX chart
+## Install NGINX chart via hub
 
 https://artifacthub.io/packages/helm/bitnami/nginx
 
 ```shell
-helm install my-release oci://registry-1.docker.io/bitnamicharts/nginx
+helm install my-nginx oci://registry-1.docker.io/bitnamicharts/nginx
 ```
 
 ```shell
-helm delete my-release
+helm delete my-nginx
 ```
 
 ## Create a new chart
