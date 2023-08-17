@@ -19,7 +19,7 @@ helm repo list
 ```
 
 ```shell
-helm search repo bitnami/nginx
+helm search repo nginx
 ```
 
 ```shell
