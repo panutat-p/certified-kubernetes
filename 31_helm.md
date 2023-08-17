@@ -2,7 +2,31 @@
 
 https://helm.sh/docs/intro/using_helm
 
-## Pull NGINX chart
+## Repository
+
+https://charts.bitnami.com
+
+```shell
+helm search hub nginx
+```
+
+```shell
+helm repo add bitnami https://charts.bitnami.com/bitnami
+```
+
+```shell
+helm repo list
+```
+
+```shell
+helm search repo bitnami/nginx
+```
+
+```shell
+helm install my-nginx bitnami/nginx
+```
+
+## Install NGINX chart
 
 https://artifacthub.io/packages/helm/bitnami/nginx
 
