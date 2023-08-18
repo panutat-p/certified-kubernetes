@@ -6,6 +6,7 @@ https://kubernetes.io/docs/concepts/services-networking/network-policies
 * ⚠️ By default, all pods are non-isolated for ingress and egress
 * NetworkPolicy control traffic flow at the IP address or port level (OSI layer 3 or 4)
 * NetworkPolicy apply to a connection with a pod on one or both ends
+* 🦊 NetworkPolicy is applied at the namespace level without requiring any changes to the pods themselves
 
 ## Allow internal pod to access payroll pod and MySQL pod
 
