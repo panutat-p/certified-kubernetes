@@ -2,11 +2,17 @@
 
 https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands
 
-## Help
+## Cluster
+
+```shell
+kubectl config get-contexts
+```
 
 ```shell
 kubectl api-resources
 ```
+
+## Help
 
 ```shell
 kubectl create -h
