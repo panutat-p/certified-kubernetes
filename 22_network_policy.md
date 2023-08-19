@@ -35,11 +35,13 @@ spec:
         - podSelector:
             matchLabels:
               app: httpd
+      ports: []
   egress:
     - to:
         - podSelector:
             matchLabels:
               app: httpd
+      ports: []
 ```
 
 ```yaml
