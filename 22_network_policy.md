@@ -10,9 +10,12 @@ https://kubernetes.io/docs/concepts/services-networking/network-policies
 
 ## Simple network policy between httpd pod and nginx pod
 
-* nginx pod must have label `app=ginx`
-* httpd pod must have label `app=httpd`
-* Allow any port numbers
+```yaml
+kubectl run nginx-01 --image nginx:1.25 -l app=nginx -o yaml
+kubectl run nginx-02 --image nginx:1.25 -l app=nginx -o yaml
+kubectl run httpd-01 --image httpd:2 -l app=httpd -o yaml
+kubectl run httpd-02 --image httpd:2 -l app=httpd -o yaml
+```
 
 ```yaml
 apiVersion: networking.k8s.io/v1
@@ -57,11 +60,13 @@ spec:
         - podSelector:
             matchLabels:
               app: nginx
+      ports: {}
   egress:
     - to:
         - podSelector:
             matchLabels:
               app: nginx
+      ports: {}
 ```
 
 ## Allow internal pod to access payroll pod and MySQL pod
