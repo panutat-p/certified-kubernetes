@@ -8,6 +8,62 @@ https://kubernetes.io/docs/concepts/services-networking/network-policies
 * NetworkPolicy apply to a connection with a pod on one or both ends
 * 🦊 NetworkPolicy is applied at the namespace level without requiring any changes to the pods themselves
 
+## Simple network policy between httpd pod and nginx pod
+
+* nginx pod must have label `app=ginx`
+* httpd pod must have label `app=httpd`
+* Allow any port numbers
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: nginx-policy
+  namespace: demo
+spec:
+  podSelector:
+    matchLabels:
+      app: nginx
+  policyTypes:
+    - Ingress
+    - Egress
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              app: httpd
+  egress:
+    - to:
+        - podSelector:
+            matchLabels:
+              app: httpd
+```
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: httpd-policy
+  namespace: dev
+spec:
+  podSelector:
+    matchLabels:
+      app: httpd
+  policyTypes:
+    - Ingress
+    - Egress
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              app: nginx
+  egress:
+    - to:
+        - podSelector:
+            matchLabels:
+              app: nginx
+```
+
 ## Allow internal pod to access payroll pod and MySQL pod
 
 ```yaml
