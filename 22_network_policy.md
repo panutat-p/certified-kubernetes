@@ -60,13 +60,13 @@ spec:
         - podSelector:
             matchLabels:
               app: nginx
-      ports: {}
+      ports: []
   egress:
     - to:
         - podSelector:
             matchLabels:
               app: nginx
-      ports: {}
+      ports: []
 ```
 
 ## Allow internal pod to access payroll pod and MySQL pod
