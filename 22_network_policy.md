@@ -44,7 +44,7 @@ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: httpd-policy
-  namespace: dev
+  namespace: demo
 spec:
   podSelector:
     matchLabels:
@@ -71,7 +71,7 @@ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: internal-policy
-  namespace: default
+  namespace: demo
 spec:
   podSelector:
     matchLabels:
@@ -102,7 +102,7 @@ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: test-network-policy
-  namespace: default
+  namespace: demo
 spec:
   podSelector:
     matchLabels:
