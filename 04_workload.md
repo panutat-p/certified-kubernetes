@@ -87,13 +87,13 @@ spec:
 ## CronJob
 
 * Run every 5 seconds
-* Each job has deadline of 8 seconds
+* Each job has deadline of 15 seconds
 
 ```yaml
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: every-5s-cron
+  name: cat-cron
   namespace: demo
   labels:
     app: every-5s-cron
@@ -104,11 +104,11 @@ spec:
   failedJobsHistoryLimit: 10
   jobTemplate:
     spec:
-      activeDeadlineSeconds: 5
+      activeDeadlineSeconds: 15
       template:
         metadata:
           labels:
-            app: every-5s-job
+            app: cat-job
             owner: admin
         spec:
           serviceAccountName: default
@@ -124,5 +124,5 @@ spec:
 ```
 
 ```shell
-kubectl create job cat-fact-job --from cronjob/every-5s-cron
+kubectl create job cat-test-job --from cronjob/every-5s-cron
 ```
