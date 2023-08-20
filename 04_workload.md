@@ -118,7 +118,7 @@ spec:
               command:
                 - sh
                 - -c
-                - wget -q -O /dev/stdout --no-check-certificate https://cat-fact.herokuapp.com/facts
+                - wget -q -O /dev/stdout --auth-no-challenge https://cat-fact.herokuapp.com/facts
           restartPolicy: Never
       backoffLimit: 0
 ```
