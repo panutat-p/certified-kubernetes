@@ -47,6 +47,9 @@ https://www.reddit.com/r/kubernetes/comments/13mhozb/ckad_exam_experience_and_ti
 `busybox:1.36`\
 https://hub.docker.com/_/busybox
 
+`curlimages/curl:latest`
+https://hub.docker.com/r/curlimages/curl
+
 `nginx:1.25`\
 https://hub.docker.com/_/nginx
 
