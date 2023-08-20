@@ -66,7 +66,7 @@ https://kubernetes.io/docs/concepts/workloads/controllers/job
 * A container in a pod may fail: non-zero exit code or memory limit exceeded
   * `restartPolicy: Never` terminate the pod
   * `restartPolicy: OnFailure` the pod stays on the node but the container is re-run
-* 💀 An entire Pod amy fail: the node is upgraded or rebooted
+* 💀 An entire Pod may fail: the node is upgraded or rebooted
 * `completions` (default is 1)
   * The second pod will be created after the first pod is successful because `parallelism` is 1
   * The job is considered as `Succeeded` when there are 3 successful pods
