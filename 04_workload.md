@@ -86,8 +86,10 @@ spec:
 
 ## CronJob
 
-* Run every 5 seconds
+* Run every 5 minutes
 * Each job has deadline of 15 seconds
+* Keep 5 successful job instances
+* Keep 10 failed job instances
 
 ```yaml
 apiVersion: batch/v1
@@ -96,7 +98,7 @@ metadata:
   name: cat-cron
   namespace: demo
   labels:
-    app: every-5s-cron
+    app: cat-cron
     owner: admin
 spec:
   schedule: "*/5 * * * *"
@@ -124,5 +126,10 @@ spec:
 ```
 
 ```shell
-kubectl create job cat-test-job --from cronjob/every-5s-cron
+kubectl create job cat-test-job --from cronjob/cat-cron
+```
+
+Expected: see at most 5 successful jobs and at most 10 failed jobs
+```shell
+kubectl get job
 ```
