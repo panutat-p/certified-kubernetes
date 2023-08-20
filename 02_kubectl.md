@@ -5,7 +5,7 @@
 https://kubernetes.io/docs/reference/kubectl/cheatsheet/#kubectl-autocomplete
 
 ```shell
-kubectl version --output=yaml
+kubectl version
 ```
 
 ```shell
@@ -22,16 +22,6 @@ echo '[[ $commands[kubectl] ]] && source <(kubectl completion zsh)' >> ~/.zshrc
 ```shell
 alias k=kubectl
 complete -o default -F __start_kubectl k
-```
-
-```shell
-kn() {
-  [ "$1" ] && kubectl config set-context --current --namespace $1 || kubectl config view --minify | grep namespace
-}
-
-kx() {
-  [ "$1" ] && kubectl config use-context $1 || kubectl config current-context
-}
 ```
 
 ## GCP
