@@ -59,7 +59,15 @@ spec:
             - containerPort: 80
 ```
 
-## Jobs
+## Job
+
+* A container in a Pod may fail: non-zero exit code
+* An entire Pod amy fail: the node is upgraded or rebooted
+* `backoffLimit`: (default is 6) fail a job after some amount of retries
+* `parallelism`: (default is 1) number of pods for the job
+* `completions`
+  * `NonIndexed`: (default) each pod completion is homologous to each other
+  * `Indexed`: the Job is considered complete when there is one successfully completed Pod for each index
 
 ```yaml
 apiVersion: batch/v1
@@ -73,6 +81,8 @@ spec:
       labels:
         owner: admin
         app: simple-job
+  completions: 10
+  parallelism: 3
     spec:
       serviceAccountName: default
       containers:
