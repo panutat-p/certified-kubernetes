@@ -113,12 +113,16 @@ spec:
         spec:
           serviceAccountName: default
           containers:
-            - name: busybox
-              image: busybox:1.36
+            - name: curl
+              image: curlimages/curl:latest
               command:
                 - sh
                 - -c
-                - wget -q -O /dev/stdout --auth-no-challenge https://cat-fact.herokuapp.com/facts
+                - curl https://cat-fact.herokuapp.com/facts
           restartPolicy: Never
       backoffLimit: 0
+```
+
+```shell
+kubectl create job cat-fact-job --from cronjob/every-5s-cron
 ```
