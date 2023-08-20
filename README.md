@@ -3,13 +3,16 @@
 Certified Kubernetes Application Developer (CKAD)\
 https://training.linuxfoundation.org/certification/certified-kubernetes-application-developer-ckad
 
-FAQ\
+FAQs\
 https://docs.linuxfoundation.org/tc-docs/certification/faq-cka-ckad-cks
 
-must read\
+Agreement\
+https://docs.linuxfoundation.org/tc-docs/certification/lf-cert-agreement
+
+Handbook\
 https://docs.linuxfoundation.org/tc-docs/certification/lf-handbook2
 
-must read\
+Instructions
 https://docs.linuxfoundation.org/tc-docs/certification/tips-cka-and-ckad
 
 ## Simulators
