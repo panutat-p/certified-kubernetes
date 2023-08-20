@@ -80,10 +80,14 @@ kx() {
 
 ## Utilities
 
-```
+```shell
 curl -X GET https://cat-fact.herokuapp.com/facts
 ```
 
-```
+```shell
 wget -q -O /dev/stdout --auth-no-challenge https://cat-fact.herokuapp.com/facts
+```
+
+```shell
+docker container run -it curlimages/curl:latest sh
 ```
