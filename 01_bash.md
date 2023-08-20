@@ -81,7 +81,7 @@ kx() {
 ## Utilities
 
 ```
-curl -X GET -L https://cat-fact.herokuapp.com/facts
+curl -X GET https://cat-fact.herokuapp.com/facts
 ```
 
 ```
