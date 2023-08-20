@@ -45,7 +45,7 @@ color brightred ":"
 
 ## Bash configurations
 
-`.bashrc`
+`~/.bashrc`
 ```bash
 export EDITOR=nano
 export KUBE_EDITOR=nano
