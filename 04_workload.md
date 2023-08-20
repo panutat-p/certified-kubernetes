@@ -84,34 +84,41 @@ spec:
   backoffLimit: 5
 ```
 
-
 ## CronJob
 
-Echo the current time every 10 seconds.
+* Run every 5 seconds
+* Each job has deadline of 8 seconds
 
 ```yaml
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: simeple-cron-job
+  name: every-5s-cron
   namespace: demo
+  labels:
+    app: every-5s-cron
+    owner: admin
 spec:
-  schedule: "*/10 * * * *"
+  schedule: "*/5 * * * *"
+  successfulJobsHistoryLimit: 5
+  failedJobsHistoryLimit: 10
   jobTemplate:
     spec:
+      activeDeadlineSeconds: 5
       template:
         metadata:
           labels:
+            app: every-5s-job
             owner: admin
-            app: simple-job
         spec:
           serviceAccountName: default
           containers:
-          - name: busybox
-            image: busybox:1.36
-            command: ["sh", "-c"]
-            args: ["echo 'Current time is: $(date)'"]
-          restartPolicy: OnFailure
-  successfulJobsHistoryLimit: 5
-  failedJobsHistoryLimit: 5
+            - name: busybox
+              image: busybox:1.36
+              command:
+                - sh
+                - -c
+                - wget -q -O /dev/stdout --no-check-certificate https://cat-fact.herokuapp.com/facts
+          restartPolicy: Never
+      backoffLimit: 0
 ```
