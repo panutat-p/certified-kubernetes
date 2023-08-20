@@ -12,7 +12,7 @@ https://docs.linuxfoundation.org/tc-docs/certification/lf-cert-agreement
 Handbook\
 https://docs.linuxfoundation.org/tc-docs/certification/lf-handbook2
 
-Instructions
+Instructions\
 https://docs.linuxfoundation.org/tc-docs/certification/tips-cka-and-ckad
 
 ## Simulators
