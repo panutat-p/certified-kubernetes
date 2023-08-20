@@ -74,3 +74,13 @@ kx() {
   [ "$1" ] && kubectl config use-context $1 || kubectl config current-context
 }
 ```
+
+## Utilities
+
+```
+curl -X GET -L https://cat-fact.herokuapp.com/facts
+```
+
+```
+wget -q -O /dev/stdout --auth-no-challenge https://cat-fact.herokuapp.com/facts
+```
