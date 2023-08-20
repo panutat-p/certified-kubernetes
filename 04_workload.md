@@ -61,37 +61,36 @@ spec:
 
 ## Job
 
-* A container in a Pod may fail: non-zero exit code
+https://kubernetes.io/docs/concepts/workloads/controllers/job
+
+* A container in a pod may fail: a program return non-zero exit code
 * An entire Pod amy fail: the node is upgraded or rebooted
 * `backoffLimit`: (default is 6) fail a job after some amount of retries
-* `parallelism`: (default is 1) number of pods for the job
 * `completions`
-  * `NonIndexed`: (default) each pod completion is homologous to each other
-  * `Indexed`: the Job is considered complete when there is one successfully completed Pod for each index
+  * A second pod will be created after the first pod is successful because `parallelism` is 1
+  * The job is considered successful when there are 3 successful pods
 
 ```yaml
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: simple-job
+  name: random-error-job
   namespace: demo
 spec:
   template:
     metadata:
       labels:
         owner: admin
-        app: simple-job
-  completions: 10
-  parallelism: 3
+        app: random-error-job
+  completions: 3
+  parallelism: 1
     spec:
       serviceAccountName: default
       containers:
-      - name: busybox
-        image: busybox:1.36
-        command: ["sh", "-c"]
-        args: ["echo 'Current time is: $(date)'"]
-      restartPolicy: OnFailure
-  backoffLimit: 5
+      - name: random-error
+        image: kodekloud/random-error
+      restartPolicy: Never
+  backoffLimit: 6
 ```
 
 ## CronJob
