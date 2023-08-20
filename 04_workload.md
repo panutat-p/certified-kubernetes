@@ -67,10 +67,12 @@ https://kubernetes.io/docs/concepts/workloads/controllers/job
   * `restartPolicy: Never` terminate the pod
   * `restartPolicy: OnFailure` the pod stays on the node but the container is re-run
 * 💀 An entire Pod amy fail: the node is upgraded or rebooted
-* `backoffLimit`: (default is 6) fail a job after some amount of retries
-* `completions`
-  * A second pod will be created after the first pod is successful because `parallelism` is 1
+* `backoffLimit`:  fail a job after some amount of retries
+  * The second pod will be created after the first pod is successful because `parallelism` is 1
   * The job is considered successful when there are 3 successful pods
+* `backoffLimit` (default is 6)
+  * The job is failed if the number of retries exceeds the `backoffLimit`
+  * Otherwise, the job is successful then stop scheduling pods
 
 ```yaml
 apiVersion: batch/v1
@@ -79,21 +81,21 @@ metadata:
   name: random-error-job
   namespace: demo
 spec:
+  completionMode: NonIndexed
+  completions: 3
+  parallelism: 1
+  backoffLimit: 6
   template:
     metadata:
       labels:
         owner: admin
         app: random-error-job
-  completionMode: NonIndexed
-  completions: 3
-  parallelism: 1
     spec:
       serviceAccountName: default
       containers:
       - name: random-error
         image: kodekloud/random-error
       restartPolicy: Never
-  backoffLimit: 6
 ```
 
 ## CronJob
