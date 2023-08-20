@@ -63,8 +63,10 @@ spec:
 
 https://kubernetes.io/docs/concepts/workloads/controllers/job
 
-* A container in a pod may fail: a program return non-zero exit code
-* An entire Pod amy fail: the node is upgraded or rebooted
+* A container in a pod may fail: non-zero exit code or memory limit exceeded
+  * `restartPolicy: Never` terminate the pod
+  * `restartPolicy: OnFailure` the pod stays on the node but the container is re-run
+* 💀 An entire Pod amy fail: the node is upgraded or rebooted
 * `backoffLimit`: (default is 6) fail a job after some amount of retries
 * `completions`
   * A second pod will be created after the first pod is successful because `parallelism` is 1
@@ -82,6 +84,7 @@ spec:
       labels:
         owner: admin
         app: random-error-job
+  completionMode: NonIndexed
   completions: 3
   parallelism: 1
     spec:
