@@ -12,7 +12,7 @@ nano --version
 man nanorc
 ```
 
-## Configurations
+## Nano configurations
 
 https://bash-prompt.net/guides/nanorc-settings
 
@@ -30,8 +30,8 @@ set tabsize 2
 set tabstospaces
 set autoindent
 
-bind ^z undo main
 bind ^a redo main
+bind ^z undo main
 bind ^x cut main
 bind ^c copy main
 bind ^v paste main
@@ -43,21 +43,19 @@ color magenta "^\s*[A-Za-z0-9_-]+:"
 color brightred ":"
 ```
 
+## Bash configurations
+
 `.bashrc`
 ```
-export KUBE_EDITOR=nano
 export EDITOR=nano
-```
+export KUBE_EDITOR=nano
 
-# Utilities
+KUBECONFIG=~/.kube/config
 
-```shell
 alias c='clear'
 alias l='ls -laF'
 alias ll='ls -lF'
-```
 
-```shell
 enc() {
   echo -n "$1" | base64
   echo
@@ -66,5 +64,13 @@ enc() {
 dec() {
   echo -n "$1" | base64 -d
   echo
+}
+
+kn() {
+  [ "$1" ] && kubectl config set-context --current --namespace $1 || kubectl config view --minify | grep namespace
+}
+
+kx() {
+  [ "$1" ] && kubectl config use-context $1 || kubectl config current-context
 }
 ```
