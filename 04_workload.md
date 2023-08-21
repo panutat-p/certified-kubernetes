@@ -59,6 +59,18 @@ spec:
             - containerPort: 80
 ```
 
+```shell
+kubectl rollout restart deploy/name    
+```
+
+```shell
+kubectl rollout status deploy/name
+```
+
+```shell
+kubectl rollout undo deploy/name
+```
+
 ## Job
 
 https://kubernetes.io/docs/concepts/workloads/controllers/job
