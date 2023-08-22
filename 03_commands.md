@@ -76,7 +76,7 @@ kubectl create svc clusterip nginx-service --tcp 80:80 nginx:1.25 --replicas 3 -
 ```
 
 ```shell
-kubectl run nginx-pod --image=nginx:1.25 --port 80 --labels app=nginx -o yaml
+kubectl run nginx-pod --image nginx:1.25 --port 80 --labels app=nginx -o yaml
 ```
 
 ```shell
@@ -84,12 +84,12 @@ kubectl run ubuntu --image ubuntu:23.10 --labels app=ubuntu --command -- sleep i
 ```
 
 ```shell
-kubectl expose pod nginx-pod --type=ClusterIP --port=80 --target-port=80 --name=nginx-service
+kubectl expose pod nginx-pod --name nginx-service --type ClusterIP --port 80 --target-port 80
 ```
 
 ```shell
-kubectl create ing item --class=default --rule example.com/items*=item-service:80
-kubectl create ing payment --class=default --rule="/pay=pay-service:8282"
+kubectl create ing item --class default --rule example.com/items*=item-service:80
+kubectl create ing payment --class default --rule /pay=pay-service:8282
 ```
 
 ## Dry run
