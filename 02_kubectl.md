@@ -1,6 +1,6 @@
 # Configurations
 
-## `kubectl`
+## Client
 
 https://kubernetes.io/docs/reference/kubectl/cheatsheet/#kubectl-autocomplete
 
@@ -22,6 +22,18 @@ echo '[[ $commands[kubectl] ]] && source <(kubectl completion zsh)' >> ~/.zshrc
 ```shell
 alias k=kubectl
 complete -o default -F __start_kubectl k
+```
+
+## Cluster
+
+https://kubernetes.io/docs/reference/setup-tools/kubeadm/implementation-details
+
+```shell
+ls /etc/kubernetes/manifests
+```
+
+```shell
+ls /etc/kubernetes
 ```
 
 ## GCP
