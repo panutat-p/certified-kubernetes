@@ -45,6 +45,11 @@ spec:
     matchLabels:
       owner: admin
       app: nginx
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 2
   template:
     metadata:
       labels:
@@ -54,7 +59,7 @@ spec:
       serviceAccountName: default
       containers:
         - name: nginx
-          image: nginx:1.25-bookworm
+          image: nginx:1.25
           ports:
             - containerPort: 80
 ```
