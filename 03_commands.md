@@ -50,19 +50,24 @@ kubectl get ns
 kubectl get sa
 ```
 
-Ingress
 ```shell
 kubectl get ing
 ```
 
-Custom resource definition
 ```shell
 kubectl get crd
 ```
 
-Network policy
 ```shell
 kubectl get netpol
+```
+
+```shell
+kubectl get role
+```
+
+```shell
+kubectl get rolebinding
 ```
 
 ## Create
