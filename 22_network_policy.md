@@ -7,6 +7,21 @@ https://kubernetes.io/docs/concepts/services-networking/network-policies
 * NetworkPolicy control traffic flow at the IP address or port level (OSI layer 3 or 4)
 * NetworkPolicy apply to a connection with a pod on one or both ends
 * 🦊 NetworkPolicy is applied at the namespace level without requiring any changes to the pods themselves
+* 🦊 The order in which network policies are applied and evaluated is determined by the order in which they are created
+
+## Deny ingress traffic to all pods in the namespace
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: deny-all-policy
+  namespace: demo
+spec:
+  podSelector: {}
+  policyTypes:
+    - Ingress
+```
 
 ## Simple network policy between httpd pod and nginx pod
 
