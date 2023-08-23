@@ -5,11 +5,15 @@ https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands
 ## Cluster
 
 ```shell
-kubectl config get-contexts
+kubectl api-versions
 ```
 
 ```shell
 kubectl api-resources
+```
+
+```shell
+kubectl config get-contexts
 ```
 
 ## Help
