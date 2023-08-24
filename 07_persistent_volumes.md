@@ -22,14 +22,14 @@ metadata:
   labels:
     app: kodekloud
 spec:
-  storageClassName: ""
+  storageClassName: manual
   persistentVolumeReclaimPolicy: Retain
-  capacity:
-    storage: 100Mi
   accessModes:
     - ReadWriteMany
   hostPath:
     path: /pv/log
+  capacity:
+    storage: 100Mi
 ```
 
 ```yaml
@@ -38,6 +38,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: claim-log-1
 spec:
+  storageClassName: manual
   volumeMode: Filesystem
   accessModes:
     - ReadWriteMany
