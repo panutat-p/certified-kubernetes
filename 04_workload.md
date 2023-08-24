@@ -22,6 +22,7 @@ spec:
   containers:
     - name: ubuntu
       image: ubuntu:23.10
+      env: []
       ports:
         - containerPort: 80
       command: ['sleep']
@@ -29,6 +30,9 @@ spec:
       securityContext:
         capabilities:
           add: ['NET_ADMIN', 'SYS_TIME']
+      volumeMounts: []
+      resources: {}
+  volumes: []
 ```
 
 ## Deployment
@@ -43,8 +47,8 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      owner: admin
       app: nginx
+      owner: admin
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -53,15 +57,19 @@ spec:
   template:
     metadata:
       labels:
-        owner: panda
         app: nginx
+        owner: admin
     spec:
       serviceAccountName: default
       containers:
         - name: nginx
           image: nginx:1.25
+          env: []
           ports:
             - containerPort: 80
+          volumeMounts: []
+          resources: {}
+      volumes: []
 ```
 
 ```shell
