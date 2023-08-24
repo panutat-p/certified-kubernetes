@@ -31,6 +31,8 @@ spec:
         capabilities:
           add: ['NET_ADMIN', 'SYS_TIME']
       volumeMounts: []
+      readinessProbe: {}
+      livenessProbe: {}
       resources: {}
   volumes: []
 ```
@@ -68,6 +70,7 @@ spec:
           ports:
             - containerPort: 80
           volumeMounts: []
+          readinessProbe: {}
           resources: {}
       volumes: []
 ```
