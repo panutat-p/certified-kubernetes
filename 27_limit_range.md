@@ -5,13 +5,13 @@ https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/memory-defa
 * Container `resources` may override `LimitRange` values
 * Creating a pod that does not meet the `min` or `max` is not allowed
 
-## Simple
+## Configure default values and constraints for a namespace
 
 ```yaml
 apiVersion: v1
 kind: LimitRange
 metadata:
-  name: resource-limit-range
+  name: demo-limit-range
   namespace: demo
 spec:
   limits:
