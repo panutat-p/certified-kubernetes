@@ -2,8 +2,8 @@
 
 https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/memory-default-namespace
 
-* Container `resources.limit` will override both limit values of `LimitRange`
-* Container `resources.requests` will override request limit value of `LimitRange`
+* Container `resources` may override `LimitRange` values
+* Creating a pod that does not meet the `min` or `max` is not allowed
 
 ## Simple
 
@@ -11,7 +11,7 @@ https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/memory-defa
 apiVersion: v1
 kind: LimitRange
 metadata:
-  name: demo-limit-range
+  name: resource-limit-range
   namespace: demo
 spec:
   limits:
@@ -19,7 +19,7 @@ spec:
       defaultRequest:
         cpu: 100m
         memory: 100Mi
-      defaultLimit:
+      default:
         cpu: 1
         memory: 1Gi
       maxLimitRequestRatio:
