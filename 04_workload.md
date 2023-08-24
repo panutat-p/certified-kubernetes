@@ -71,6 +71,7 @@ spec:
             - containerPort: 80
           volumeMounts: []
           readinessProbe: {}
+          livenessProbe: {}
           resources: {}
       volumes: []
 ```
