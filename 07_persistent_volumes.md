@@ -17,10 +17,8 @@ But it is not yet available for another claim because the previous claimant's da
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: pv-log
+  name: log-storage
   namespace: demo
-  labels:
-    app: kodekloud
 spec:
   storageClassName: manual
   persistentVolumeReclaimPolicy: Retain
@@ -36,7 +34,8 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: claim-log-1
+  name: log-claim
+  namespace: demo
 spec:
   storageClassName: manual
   volumeMode: Filesystem
@@ -65,5 +64,5 @@ spec:
   volumes:
     - name: log-volume
       persistentVolumeClaim:
-        claimName: claim-log-1
+        claimName: log-claim
 ```
