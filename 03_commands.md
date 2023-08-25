@@ -89,7 +89,7 @@ kubectl run nginx-pod --image nginx:1.25 --port 80 --labels app=nginx -o yaml
 ```
 
 ```shell
-kubectl run ubuntu --image ubuntu:23.10 --labels app=ubuntu --command -- sleep infinity
+kubectl run curl --image curlimages/curl:latest --command -o yaml -- sleep infinity
 ```
 
 ```shell
