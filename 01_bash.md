@@ -55,9 +55,11 @@ KUBECONFIG=~/.kube/config
 alias c='clear'
 alias l='ls -laF'
 alias ll='ls -lF'
-alias d='docker'
-alias dcl='docker container ls -a'
 alias k='kubectl'
+alias d='docker'
+alias dc='docker-compose'
+alias dlist='docker container ls -a'
+alias dremove='docker rm $(docker ps -aq)'
 
 enc() {
   echo -n "$1" | base64
