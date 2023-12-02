@@ -22,10 +22,21 @@ spec:
         number: 80
 ```
 
-## Any host
+## Nginx rewrite target
 
-Why we need `rewrite-target`?\
-https://www.udemy.com/course/certified-kubernetes-application-developer/learn/lecture/16716434#questions
+* Documentation for the Ingress NGINX Controller
+  * https://kubernetes.github.io/ingress-nginx/examples
+* `Rewrite` behavior of `Nginx Ingress` cannot be replicated by `GCE Ingress`
+  * https://stackoverflow.com/a/71033160
+* Example of path-based routing with `rewrite-target`
+  * https://www.udemy.com/course/certified-kubernetes-application-developer/learn/lecture/16716434#questions
+
+```yaml
+annotations:
+  nginx.ingress.kubernetes.io/rewrite-target: /
+```
+
+## Any host
 
 ```yaml
 apiVersion: networking.k8s.io/v1
