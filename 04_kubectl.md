@@ -101,6 +101,22 @@ kubectl create ing item --class default --rule example.com/items*=item-service:8
 kubectl create ing payment --class default --rule /pay=pay-service:8282
 ```
 
+```shell
+kubectl create secret generic redis-secret --from-literal REDIS_HOST=localhost --from-literal REDIS_PORT=6379
+```
+
+```shell
+kubectl create secret generic my-secret --from-file ~/dir/file
+```
+
+```shell
+kubectl create secret generic app-secret --from-env-file ~/dir/.env
+```
+
+```shell
+kubectl create secret tls kafka-secret --cert ~/dir/tls.cert --key ~/dir/tls.key
+```
+
 ## Dry run
 
 ```shell
