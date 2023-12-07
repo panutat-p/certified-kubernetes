@@ -123,6 +123,10 @@ kubectl create secret tls kafka-secret --cert ~/dir/tls.cert --key ~/dir/tls.key
 kubectl create deploy httpd --image httpd:2.4 --replicas 3 -o yaml --dry-run=client
 ```
 
+```shell
+kubectl create configmap ssl-files --from-file=truststore.jks -o yaml --dry-run=client
+```
+
 ## Resources
 
 ```shell
