@@ -6,7 +6,7 @@ https://kubernetes.io/docs/tasks/inject-data-application/define-environment-vari
 
 ## Static ENV
 
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
