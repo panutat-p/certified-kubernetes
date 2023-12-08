@@ -1,10 +1,6 @@
 # Nano
 
 ```shell
-whereis nano
-```
-
-```shell
 nano --version
 ```
 
@@ -57,9 +53,6 @@ alias l='ls -laF'
 alias ll='ls -lF'
 alias k='kubectl'
 alias d='docker'
-alias dc='docker-compose'
-alias dlist='docker container ls -a'
-alias dremove='docker rm $(docker ps -aq)'
 
 enc() {
   echo -n "$1" | base64
@@ -78,18 +71,4 @@ kn() {
 kx() {
   [ "$1" ] && kubectl config use-context $1 || kubectl config current-context
 }
-```
-
-## Utilities
-
-```shell
-curl -X GET https://cat-fact.herokuapp.com/facts
-```
-
-```shell
-wget -q -O /dev/stdout --auth-no-challenge https://cat-fact.herokuapp.com/facts
-```
-
-```shell
-docker container run -it curlimages/curl:latest sh
 ```
