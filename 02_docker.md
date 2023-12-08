@@ -22,6 +22,10 @@ docker container run --name nginx-demo -p 80:80 --rm nginx:demo
 ```
 
 ```shell
+docker container run -it curlimages/curl:latest sh
+```
+
+```shell
 docker container ls -a
 ```
 
